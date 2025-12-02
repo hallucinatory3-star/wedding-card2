@@ -17,6 +17,11 @@ html.dark :root {
   --muted: #8b9db0;
 }
 
+@theme {
+  --breakpoint-xs: 480px;
+}
+
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

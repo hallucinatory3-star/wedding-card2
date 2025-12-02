@@ -214,9 +214,10 @@ const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
         {timeBlocks.map((block, index) => (
           <motion.div
             key={block.label}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
+            initial={{ opacity: 0, scale: 0.8, y: 40 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ delay: index * 0.15, duration: 0.8, ease: "easeOut" }}
             className="flex flex-col items-center"
           >
             <motion.div
@@ -330,10 +331,10 @@ const EventCard = ({
 }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay }}
-      viewport={{ once: true }}
+      initial={{ opacity: 0, scale: 0.9, y: 80 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ duration: 0.9, delay, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.2 }}
       className="glass rounded-3xl p-6 md:p-8 border border-[#4a90d9]/20 hover:border-[#4a90d9]/40 transition-all duration-500"
     >
       <motion.h3
@@ -427,27 +428,29 @@ const EventCard = ({
           </div>
         )}
 
-        {time && <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-[#4a90d9]/10 flex items-center justify-center">
-            <svg
-              className="w-5 h-5 text-[#4a90d9]"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
+        {time && (
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-[#4a90d9]/10 flex items-center justify-center">
+              <svg
+                className="w-5 h-5 text-[#4a90d9]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <div>
+              <p className="text-sm text-muted">Time</p>
+              <p className="font-cormorant text-lg">{time}</p>
+            </div>
           </div>
-          <div>
-            <p className="text-sm text-muted">Time</p>
-            <p className="font-cormorant text-lg">{time}</p>
-          </div>
-        </div>}
+        )}
 
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-[#4a90d9]/10 flex items-center justify-center">
@@ -949,15 +952,21 @@ export default function Home() {
           >
             We&apos;re Getting Married
           </motion.p>
-
+          <Image
+            src="/lord-ganesha-2.png"
+            width={200}
+            height={200}
+            alt="lord-ganesha"
+            className="w-40 h-40 mx-auto mb-8"
+          />
           {/* Names */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="mb-8"
+            className="flex items-center justify-center flex-wrap xs:flex-nowrap gap-4 mb-8"
           >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-playfair gradient-text leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-playfair gradient-text leading-tight">
               {brideName}
             </h1>
             <motion.div
@@ -970,7 +979,7 @@ export default function Home() {
                 &amp;
               </span>
             </motion.div>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-playfair gradient-text leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-playfair gradient-text leading-tight">
               {groomName}
             </h1>
           </motion.div>
@@ -984,7 +993,7 @@ export default function Home() {
             transition={{ delay: 1 }}
             className="mb-12"
           >
-            <p className="text-2xl md:text-3xl font-cormorant)] text-foreground">
+            <p className="text-xl sm:text-2xl md:text-3xl font-cormorant)] text-foreground">
               Wednesday, February 4th, 2026
             </p>
           </motion.div>
@@ -1011,18 +1020,19 @@ export default function Home() {
       <section className="py-20 md:py-32 px-4 relative">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-3xl md:text-5xl font-playfair gradient-text mb-4"
           >
             Counting Down To Forever
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
             className="text-muted mb-12 font-cormorant text-xl"
           >
             The beginning of our beautiful journey together
@@ -1037,19 +1047,24 @@ export default function Home() {
       <section className="py-20 md:py-32 px-4 relative">
         <div className="max-w-4xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="glass rounded-3xl p-8 md:p-12 border border-[#4a90d9]/20"
+            initial={{ opacity: 0, scale: 0.9, y: 80 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+            className="rounded-3xl p-8 md:p-12"
           >
-            <div className="flex justify-center mb-6">
-              <motion.div
+            <div className="flex justify-center">
+              <div
                 className="text-7xl"
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ repeat: Infinity, duration: 2 }}
               >
-                <Image src="/lord-ganesha.png" width={200} height={200} alt="om" className="w-50 h-50 object-cover" />
-              </motion.div>
+                <Image
+                  src="/Om.png"
+                  width={200}
+                  height={200}
+                  alt="om"
+                  className="w-40 h-40"
+                />
+              </div>
             </div>
             <div className="text-center space-y-6">
               <h3 className="text-2xl md:text-3xl font-playfair gradient-text">
@@ -1070,9 +1085,10 @@ export default function Home() {
       <section className="py-20 md:py-32 px-4 relative">
         <div className="max-w-4xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-5xl font-playfair gradient-text mb-4">
@@ -1084,21 +1100,32 @@ export default function Home() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, scale: 0.9, y: 80 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
             className="glass rounded-3xl p-8 md:p-12 border border-[#4a90d9]/20"
           >
-            <div className="flex justify-center mb-8">
+            <div className="flex justify-center">
               <motion.div
-                className="text-6xl"
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ repeat: Infinity, duration: 5 }}
+                className="text-6xl rotate-40"
+                animate={{ scale: [1, 1.07, 1] }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 4,
+                  ease: "easeInOut",
+                }}
               >
-                <Image src="/bouquet.png" width={200} height={200} alt="booque" className="w-30 h-30 object-cover rounded-full" />
+                <Image
+                  src="/bouquet.png"
+                  width={200}
+                  height={200}
+                  alt="bouquet"
+                  className="w-30 h-30 object-cover"
+                />
               </motion.div>
             </div>
-            <div className="text-center space-y-6">
+            <div className="text-center space-y-4">
               <h3 className="text-3xl md:text-4xl font-playfair gradient-text">
                 Shagun Dubey
               </h3>
@@ -1125,9 +1152,10 @@ export default function Home() {
       <section className="py-20 md:py-32 px-4 relative">
         <div className="max-w-4xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, scale: 0.9, y: 80 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
             className="glass rounded-3xl p-8 md:p-12 border border-[#4a90d9]/20"
           >
             <div className="flex justify-center mb-8">
@@ -1136,11 +1164,20 @@ export default function Home() {
                 animate={{ rotate: [0, 10, -10, 0] }}
                 transition={{ repeat: Infinity, duration: 3 }}
               >
-                <Image src="/peacock.png" width={200} height={200} alt="peacock" className="w-30 h-30 object-cover rounded-full" />
+                <Image
+                  src="/peacock.png"
+                  width={200}
+                  height={200}
+                  alt="peacock"
+                  className="w-30 h-30 object-cover rounded-full"
+                />
               </motion.div>
             </div>
             <p className="text-center text-lg md:text-xl font-cormorant leading-relaxed text-foreground">
-              By the grace of the Almighty and with the blessings of our elders, we joyfully invite you to join us as we embark on our journey of love and togetherness. Your presence will make our celebration complete.
+              By the grace of the Almighty and with the blessings of our elders,
+              we joyfully invite you to join us as we embark on our journey of
+              love and togetherness. Your presence will make our celebration
+              complete.
             </p>
           </motion.div>
         </div>
@@ -1152,9 +1189,10 @@ export default function Home() {
       <section className="py-20 md:py-32 px-4 relative">
         <div className="max-w-4xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-5xl font-playfair gradient-text mb-4">
@@ -1166,9 +1204,10 @@ export default function Home() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, scale: 0.9, y: 80 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
             className="glass rounded-3xl p-8 md:p-12 border border-[#4a90d9]/20"
           >
             <div className="flex justify-center mb-8">
@@ -1181,7 +1220,9 @@ export default function Home() {
               </motion.div>
             </div>
             <p className="text-center text-lg md:text-xl font-cormorant leading-relaxed text-foreground italic">
-              &ldquo;Destiny brought us together, friendship made it stronger, and love made it eternal. We&apos;re excited to write the next chapter of our lives—together.&rdquo;
+              &ldquo;Destiny brought us together, friendship made it stronger,
+              and love made it eternal. We&apos;re excited to write the next
+              chapter of our lives—together.&rdquo;
             </p>
           </motion.div>
         </div>
@@ -1193,9 +1234,10 @@ export default function Home() {
       <section className="py-20 md:py-32 px-4 relative">
         <div className="max-w-6xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-5xl font-playfair gradient-text mb-4">
@@ -1238,10 +1280,10 @@ export default function Home() {
 
           {/* Venue Map Section */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            initial={{ opacity: 0, scale: 0.95, y: 80 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
             className="mt-12 glass rounded-3xl p-6 md:p-8 border border-[#4a90d9]/20"
           >
             <h3 className="text-2xl md:text-3xl font-playfair gradient-text mb-6 text-center">
@@ -1328,9 +1370,10 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-16 px-4 text-center">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <h2 className="text-4xl md:text-6xl font-playfair gradient-text mb-6">
             {brideName} & {groomName}
@@ -1343,28 +1386,32 @@ export default function Home() {
               day: "numeric",
             })}
           </p>
-          <p className="text-muted text-xs font-inter">
-            For queries: <a href="tel:+919419200672" className="hover:text-[#4a90d9] transition-colors">9419200672</a> • <a href="tel:+919419135747" className="hover:text-[#4a90d9] transition-colors">9419135747</a> • <a href="tel:+918007459659" className="hover:text-[#4a90d9] transition-colors">8007459659</a>
-          </p>
+          <div className="flex flex-col gap-2 text-muted text-xs font-inter">
+            <p>For queries reach out to Dubey Family:</p>
+            <div>
+              <a
+                href="tel:+919419200672"
+                className="hover:text-[#4a90d9] transition-colors"
+              >
+                9419200672
+              </a>{" "}
+              •{" "}
+              <a
+                href="tel:+919419135747"
+                className="hover:text-[#4a90d9] transition-colors"
+              >
+                9419135747
+              </a>{" "}
+              •{" "}
+              <a
+                href="tel:+918007459659"
+                className="hover:text-[#4a90d9] transition-colors"
+              >
+                8007459659
+              </a>
+            </div>
+          </div>
           <div className="mt-8 flex justify-center gap-6 items-center">
-            <motion.a
-              href="#"
-              whileHover={{ scale: 1.1, color: "#4a90d9" }}
-              className="text-muted transition-colors"
-            >
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-              </svg>
-            </motion.a>
-            <motion.a
-              href="#"
-              whileHover={{ scale: 1.1, color: "#4a90d9" }}
-              className="text-muted transition-colors"
-            >
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-              </svg>
-            </motion.a>
             {/* Share Button */}
             <ShareButton />
           </div>
