@@ -952,13 +952,34 @@ export default function Home() {
           >
             We&apos;re Getting Married
           </motion.p>
-          <Image
-            src="/lord-ganesha-2.png"
-            width={200}
-            height={200}
-            alt="lord-ganesha"
-            className="w-40 h-40 mx-auto mb-8"
-          />
+          <div className="ganesha-bg w-fit mx-auto">
+            <Image
+              src="/lord-ganesha-2.png"
+              width={200}
+              height={200}
+              alt="lord-ganesha"
+              className="w-40 h-40 mx-auto mb-4"
+            />
+          </div>
+
+          {/* Ganesha Mantra - Compact */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="mb-6"
+          >
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <p className="text-xs md:text-sm font-playfair text-[#4a90d9] opacity-80">
+                ॐ श्री गणेशाय नमः
+              </p>
+            </div>
+            <p className="text-[10px] md:text-xs font-cormorant text-muted leading-tight max-w-md mx-auto">
+              वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ।<br />
+              निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥
+            </p>
+          </motion.div>
+
           {/* Names */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -1043,47 +1064,9 @@ export default function Home() {
 
       <div className="section-divider max-w-2xl mx-auto" />
 
-      {/* Ganesh Invocation Section */}
-      <section className="py-20 md:py-32 px-4 relative">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 80 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.9, ease: "easeOut" }}
-            className="rounded-3xl p-8 md:p-12"
-          >
-            <div className="flex justify-center">
-              <div
-                className="text-7xl"
-              >
-                <Image
-                  src="/Om.png"
-                  width={200}
-                  height={200}
-                  alt="om"
-                  className="w-40 h-40"
-                />
-              </div>
-            </div>
-            <div className="text-center space-y-6">
-              <h3 className="text-2xl md:text-3xl font-playfair gradient-text">
-                ॐ श्री गणेशाय नमः
-              </h3>
-              <p className="text-xl md:text-2xl font-cormorant text-foreground leading-relaxed">
-                वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ।<br />
-                निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      <div className="section-divider max-w-2xl mx-auto" />
-
       {/* Family Section */}
       <section className="py-20 md:py-32 px-4 relative">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1092,57 +1075,74 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-5xl font-playfair gradient-text mb-4">
-              The Bride
+              Our Families
             </h2>
             <p className="text-muted font-cormorant text-xl">
               A celebration of love and family
             </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 80 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.9, ease: "easeOut" }}
-            className="glass rounded-3xl p-8 md:p-12 border border-[#4a90d9]/20"
-          >
-            <div className="flex justify-center">
-              <motion.div
-                className="text-6xl rotate-40"
-                animate={{ scale: [1, 1.07, 1] }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 4,
-                  ease: "easeInOut",
-                }}
-              >
-                <Image
-                  src="/bouquet.png"
-                  width={200}
-                  height={200}
-                  alt="bouquet"
-                  className="w-30 h-30 object-cover"
-                />
-              </motion.div>
-            </div>
-            <div className="text-center space-y-4">
-              <h3 className="text-3xl md:text-4xl font-playfair gradient-text">
-                Shagun Dubey
-              </h3>
-              <p className="text-lg md:text-xl font-cormorant text-foreground leading-relaxed">
-                Beloved daughter of
-              </p>
-              <div className="space-y-2">
-                <p className="text-xl md:text-2xl font-cormorant text-foreground">
-                  Smt. Madhu Bala Dubey
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Bride's Side */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 80 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.9, ease: "easeOut", delay: 0 }}
+              className="glass rounded-3xl p-8 md:p-12 border border-[#4a90d9]/20"
+            >
+              <div className="text-center space-y-4">
+                <h3 className="text-2xl md:text-3xl font-playfair gradient-text mb-2 border-b border-[#4a90d9]/20 pb-2">
+                  Bride&apos;s Side
+                </h3>
+                <h4 className="text-2xl md:text-2xl font-playfair gradient-text">
+                  Shagun Dubey
+                </h4>
+                <p className="text-lg md:text-xl font-cormorant text-foreground leading-relaxed">
+                  Beloved daughter of
                 </p>
-                <p className="text-muted font-cormorant text-lg">&</p>
-                <p className="text-xl md:text-2xl font-cormorant text-foreground">
-                  Sh. Desh Rattan Dubey
-                </p>
+                <div className="space-y-2">
+                  <p className="text-xl md:text-2xl font-cormorant text-foreground">
+                    Smt. Madhu Bala Dubey
+                  </p>
+                  <p className="text-muted font-cormorant text-lg">&</p>
+                  <p className="text-xl md:text-2xl font-cormorant text-foreground">
+                    Sh. Desh Rattan Dubey
+                  </p>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+
+            {/* Groom's Side */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 80 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.9, ease: "easeOut", delay: 0.15 }}
+              className="glass rounded-3xl p-8 md:p-12 border border-[#4a90d9]/20"
+            >
+              <div className="text-center space-y-4">
+                <h3 className="text-2xl md:text-3xl font-playfair gradient-text mb-2 border-b border-[#4a90d9]/20 pb-2">
+                  Groom&apos;s Side
+                </h3>
+                <h4 className="text-2xl md:text-2xl font-playfair gradient-text">
+                  Vikram Singh
+                </h4>
+                <p className="text-lg md:text-xl font-cormorant text-foreground leading-relaxed">
+                  Cherished son of
+                </p>
+                <div className="space-y-2">
+                  <p className="text-xl md:text-2xl font-cormorant text-foreground">
+                    Smt. Koshaliya Devi
+                  </p>
+                  <p className="text-muted font-cormorant text-lg">&</p>
+                  <p className="text-xl md:text-2xl font-cormorant text-foreground">
+                    Sh. Chamail Singh
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -1158,21 +1158,6 @@ export default function Home() {
             transition={{ duration: 0.9, ease: "easeOut" }}
             className="glass rounded-3xl p-8 md:p-12 border border-[#4a90d9]/20"
           >
-            <div className="flex justify-center mb-8">
-              <motion.div
-                className="text-6xl"
-                animate={{ rotate: [0, 10, -10, 0] }}
-                transition={{ repeat: Infinity, duration: 3 }}
-              >
-                <Image
-                  src="/peacock.png"
-                  width={200}
-                  height={200}
-                  alt="peacock"
-                  className="w-30 h-30 object-cover rounded-full"
-                />
-              </motion.div>
-            </div>
             <p className="text-center text-lg md:text-xl font-cormorant leading-relaxed text-foreground">
               By the grace of the Almighty and with the blessings of our elders,
               we joyfully invite you to join us as we embark on our journey of
@@ -1284,12 +1269,12 @@ export default function Home() {
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
-            className="mt-12 glass rounded-3xl p-6 md:p-8 border border-[#4a90d9]/20"
+            className="mt-12 glass rounded-3xl pt-4 md:p-8 border border-[#4a90d9]/20"
           >
             <h3 className="text-2xl md:text-3xl font-playfair gradient-text mb-6 text-center">
               Venue Location
             </h3>
-            <div className="flex items-center justify-center gap-3 mb-6">
+            <div className="flex items-center justify-center gap-2 mb-6">
               <div className="w-10 h-10 rounded-full bg-[#4a90d9]/10 flex items-center justify-center">
                 <svg
                   className="w-5 h-5 text-[#4a90d9]"
@@ -1320,7 +1305,7 @@ export default function Home() {
             </div>
 
             {/* Map */}
-            <div className="map-container relative h-64 md:h-96 rounded-2xl overflow-hidden mb-6">
+            <div className="map-container relative h-64 md:h-96 rounded-none sm:rounded-2xl overflow-hidden mb-6">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3363.5!2d74.8723!3d32.7266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDQzJzM1LjgiTiA3NMKwNTInMjAuMyJF!5e0!3m2!1sen!2sin!4v1645564756836!5m2!1sen!2sin"
                 width="100%"

@@ -236,7 +236,6 @@ html.dark .glass {
 
 /* Map Container Styling */
 .map-container {
-  border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
@@ -250,4 +249,13 @@ html.dark .map-container {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--accent), transparent);
   margin: 4rem 0;
+}
+
+/* Ganesha Image Background */
+.ganesha-bg {
+  background-color: #2f3547;
+}
+
+html.dark .ganesha-bg {
+  background-color: transparent;
 }
