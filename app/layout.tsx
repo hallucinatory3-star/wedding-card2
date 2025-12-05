@@ -30,7 +30,7 @@ const weddingDate = WEDDING_DATE.toLocaleDateString("en-US", {
 });
 
 // UPDATE THIS to your actual Vercel URL
-const siteUrl = "https://wedding-card2-phi.vercel.app";
+const siteUrl = "https://wedding-card2-five.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
