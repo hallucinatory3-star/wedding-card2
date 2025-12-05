@@ -25,7 +25,7 @@ const brideName = "Bride's Name";
 const weddingDate = "February 15, 2025";
 
 // UPDATE THIS to your actual Vercel URL
-const siteUrl = "https://marriage-card-nine.vercel.app";
+const siteUrl = "https://wedding-card2-phi.vercel.app/";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
