@@ -15,6 +15,17 @@ export const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
   const [hasEnded, setHasEnded] = useState(false);
   const confettiFired = useRef(false);
 
+  // Fire confetti on component mount
+  useEffect(() => {
+    if (!confettiFired.current) {
+      confettiFired.current = true;
+      // Small delay to ensure page is loaded
+      setTimeout(() => {
+        fireConfetti();
+      }, 500);
+    }
+  }, []);
+
   useEffect(() => {
     const timer = setInterval(() => {
       const now = new Date().getTime();
@@ -29,11 +40,9 @@ export const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
           minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
           seconds: Math.floor((distance % (1000 * 60)) / 1000),
         });
-      } else if (!confettiFired.current) {
-        // Countdown reached zero - fire confetti!
+      } else {
+        // Countdown reached zero
         setHasEnded(true);
-        confettiFired.current = true;
-        fireConfetti();
       }
     }, 1000);
 

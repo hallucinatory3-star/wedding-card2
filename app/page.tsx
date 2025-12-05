@@ -10,7 +10,15 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 // Import components
-import { Divider, FloatingParticles } from "./components/ui";
+import {
+  Divider,
+  FloatingParticles,
+  FloatingHearts,
+  FloatingFlowers,
+  AnimatedFlourish,
+  RotatingMandala,
+  AnimatedRings,
+} from "./components/ui";
 import {
   CountdownTimer,
   EventCard,
@@ -89,6 +97,8 @@ export default function Home() {
       </AnimatePresence>
 
       <FloatingParticles />
+      <FloatingHearts />
+      <FloatingFlowers />
 
       {/* Hero Section */}
       <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-4 w-full max-w-full">
@@ -204,16 +214,19 @@ export default function Home() {
 
       {/* Countdown Section */}
       <section className="py-20 md:py-32 px-4 relative">
+        <AnimatedFlourish position="top-left" size="md" />
+        <AnimatedFlourish position="top-right" size="md" />
         <div className="max-w-4xl mx-auto text-center">
-          <motion.h2
+          <motion.div
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-3xl md:text-5xl font-playfair gradient-text mb-4"
           >
-            Counting Down To Forever
-          </motion.h2>
+            <h2 className="text-3xl md:text-5xl font-playfair gradient-text mb-4 zoom-in-out">
+              Counting Down To Forever
+            </h2>
+          </motion.div>
           <motion.p
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -231,6 +244,8 @@ export default function Home() {
 
       {/* Blessing Message Section */}
       <section className="py-20 md:py-32 px-4 relative">
+        <AnimatedFlourish position="bottom-left" size="lg" />
+        <AnimatedFlourish position="bottom-right" size="lg" />
         {/* soft decorative background */}
         <motion.div
           aria-hidden
@@ -271,7 +286,7 @@ export default function Home() {
                 <div
                   className="mx-auto w-16 h-16 rounded-full
                         bg-primary/10 border border-primary/30
-                        flex items-center justify-center"
+                        flex items-center justify-center glow-pulse"
                 >
                   <svg
                     className="w-8 h-8 text-primary"
@@ -346,6 +361,7 @@ export default function Home() {
 
       {/* New Invitation Section */}
       <section className="py-20 md:py-32 px-4 relative">
+        <RotatingMandala position="center" delay={4} />
         {/* soft background accents */}
         <motion.div
           aria-hidden
@@ -433,17 +449,32 @@ export default function Home() {
 
               {/* names */}
               <div className="mt-6 mb-2">
-                <h3 className="text-3xl md:text-5xl font-playfair gradient-text">
+                <motion.h3
+                  className="text-3xl md:text-5xl font-playfair gradient-text"
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                >
                   Dr. Shagun
-                </h3>
+                </motion.h3>
+              </div>
+              <div className="my-4">
+                <AnimatedRings />
               </div>
               <p className="font-cormorant text-lg md:text-xl text-muted">
                 as she begins a timeless journey hand in hand with
               </p>
               <div className="mt-2 mb-4">
-                <h3 className="text-3xl md:text-5xl font-playfair gradient-text">
+                <motion.h3
+                  className="text-3xl md:text-5xl font-playfair gradient-text"
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                >
                   Dr. Vikram
-                </h3>
+                </motion.h3>
               </div>
               <p className="font-cormorant text-lg md:text-xl text-foreground">
                 Beloved son of Mr. Chamail Singh and Mrs. Koshaliya Devi
@@ -452,7 +483,7 @@ export default function Home() {
               {/* event details */}
               <div className="grid sm:grid-cols-3 gap-4 md:gap-6 mt-8">
                 <div className="flex flex-row sm:flex-col items-center justify-center gap-2">
-                  <div className="w-10 h-10 rounded-full bg-[#4a90d9]/10 flex items-center justify-center border border-[#4a90d9]/30">
+                  <div className="w-10 h-10 rounded-full bg-[#4a90d9]/10 flex items-center justify-center border border-[#4a90d9]/30 bounce-subtle">
                     <svg
                       className="w-5 h-5 text-[#4a90d9]"
                       fill="none"
@@ -470,7 +501,11 @@ export default function Home() {
                   <p className="font-cormorant text-lg">On 4th February 2026</p>
                 </div>
                 <div className="flex flex-row sm:flex-col items-center justify-center gap-2">
-                  <div className="w-10 h-10 rounded-full bg-[#4a90d9]/10 flex items-center justify-center border border-[#4a90d9]/30">
+                  <motion.div
+                    className="w-10 h-10 rounded-full bg-[#4a90d9]/10 flex items-center justify-center border border-[#4a90d9]/30"
+                    whileHover={{ scale: 1.2, rotate: 10 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
                     <svg
                       className="w-5 h-5 text-[#4a90d9]"
                       fill="none"
@@ -490,13 +525,17 @@ export default function Home() {
                         d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                       />
                     </svg>
-                  </div>
+                  </motion.div>
                   <p className="font-cormorant text-lg">
                     Zone by the Park, Jammu
                   </p>
                 </div>
                 <div className="flex flex-row sm:flex-col items-center justify-center gap-2">
-                  <div className="w-10 h-10 rounded-full bg-[#4a90d9]/10 flex items-center justify-center border border-[#4a90d9]/30">
+                  <motion.div
+                    className="w-10 h-10 rounded-full bg-[#4a90d9]/10 flex items-center justify-center border border-[#4a90d9]/30"
+                    whileHover={{ scale: 1.2, rotate: 360 }}
+                    transition={{ type: "spring", stiffness: 200, damping: 10 }}
+                  >
                     <svg
                       className="w-5 h-5 text-[#4a90d9]"
                       fill="none"
@@ -510,7 +549,7 @@ export default function Home() {
                         d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
-                  </div>
+                  </motion.div>
                   <p className="font-cormorant text-lg">7:30 PM onwards</p>
                 </div>
               </div>
@@ -540,6 +579,8 @@ export default function Home() {
 
       {/* Events Section */}
       <section className="py-20 md:py-32 px-4 relative">
+        <AnimatedFlourish position="top-left" size="lg" />
+        <AnimatedFlourish position="top-right" size="lg" />
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 60 }}
