@@ -4,12 +4,20 @@ import { motion } from "framer-motion";
 
 // Welcome Overlay Component
 export const WelcomeOverlay = ({ onEnter }: { onEnter: () => void }) => {
+  // Prevent scroll/touch events
+  const preventScroll = (e: React.WheelEvent | React.TouchEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
   return (
     <motion.div
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 1 }}
-      className="fixed inset-0 z-100 bg-background flex items-center justify-center"
+      className="fixed inset-0 z-100 bg-background flex items-center justify-center overflow-hidden"
+      onWheel={preventScroll}
+      onTouchMove={preventScroll}
     >
       <div className="text-center px-6">
         {/* Decorative ring */}
