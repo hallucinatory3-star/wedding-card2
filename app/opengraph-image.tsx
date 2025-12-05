@@ -1,4 +1,5 @@
 import { ImageResponse } from 'next/og'
+import { BRIDE_NAME, GROOM_NAME, WEDDING_DATE } from './constants/wedding-data'
 
 export const runtime = 'edge'
 
@@ -11,9 +12,13 @@ export const contentType = 'image/png'
 
 export default async function Image() {
   // Wedding details - UPDATE THESE to match your page.tsx
-  const groomName = "Groom's Name"
-  const brideName = "Bride's Name"
-  const weddingDate = "Saturday, February 15th, 2025"
+  const groomName = GROOM_NAME
+  const brideName = BRIDE_NAME
+  const weddingDate = WEDDING_DATE.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  })
 
   return new ImageResponse(
     (

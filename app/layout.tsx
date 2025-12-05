@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
+import { BRIDE_NAME, GROOM_NAME, WEDDING_DATE } from "./constants/wedding-data";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -20,12 +21,16 @@ const inter = Inter({
   weight: ["300", "400", "500", "600"],
 });
 
-const groomName = "Groom's Name";
-const brideName = "Bride's Name";
-const weddingDate = "February 15, 2025";
+const groomName = GROOM_NAME;
+const brideName = BRIDE_NAME;
+const weddingDate = WEDDING_DATE.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
 
 // UPDATE THIS to your actual Vercel URL
-const siteUrl = "https://wedding-card2-phi.vercel.app/";
+const siteUrl = "https://wedding-card2-five.vercel.app/";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

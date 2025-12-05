@@ -1,4 +1,3 @@
-// Wedding details - UPDATE THESE
 export const WEDDING_DATE = new Date("2026-02-04T19:00:00");
 export const GROOM_NAME = "Vikram";
 export const BRIDE_NAME = "Shagun";
