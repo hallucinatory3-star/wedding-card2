@@ -30,7 +30,7 @@ const weddingDate = WEDDING_DATE.toLocaleDateString("en-US", {
 });
 
 // UPDATE THIS to your actual Vercel URL
-const siteUrl = "https://wedding-card2-five.vercel.app/";
+const siteUrl = "https://wedding-card2-phi.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     url: siteUrl,
     images: [
       {
-        url: `${siteUrl}/opengraph-image`,
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: `${groomName} & ${brideName}'s Wedding Invitation`,
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `You're Invited to ${brideName} & ${groomName}'s Wedding!`,
     description: `Join us in celebrating the union of ${brideName} & ${groomName} on ${weddingDate}. Tap to open your invitation.`,
-    images: [`${siteUrl}/twitter-image`],
+    images: ["/twitter-image"],
   },
   other: {
     "theme-color": "#4a90d9",
