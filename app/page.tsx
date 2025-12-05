@@ -145,7 +145,7 @@ export default function Home() {
             className="mb-6"
           >
             <div className="flex items-center justify-center gap-2 mb-2">
-              <p className="text-xs md:text-sm font-playfair text-[#d4a5a5] opacity-80">
+              <p className="text-xs md:text-sm font-playfair text-[#bc7777] opacity-80">
                 ॐ श्री गणेशाय नमः
               </p>
             </div>

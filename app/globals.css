@@ -126,9 +126,16 @@ html {
   }
 }
 
-/* Gradient Text */
 .gradient-text {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-soft) 50%, var(--accent) 100%);
+  --accent: #b67f7f;        /* darker than #d4a5a5 */
+  --accent-soft: #a87070;   /* even deeper for the mid-tone */
+  
+  background: linear-gradient(
+    135deg,
+    var(--accent) 0%,
+    var(--accent-soft) 50%,
+    var(--accent) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
