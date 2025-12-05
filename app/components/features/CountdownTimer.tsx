@@ -69,7 +69,7 @@ export const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
             className="flex flex-col items-center"
           >
             <motion.div
-              className="w-16 h-16 md:w-24 md:h-24 rounded-2xl glass flex items-center justify-center border border-[#4a90d9]/30"
+              className="w-16 h-16 md:w-24 md:h-24 rounded-2xl glass flex items-center justify-center border border-[#d4a5a5]/30"
               whileHover={{
                 scale: 1.05,
                 borderColor: "rgba(74, 144, 217, 0.6)",

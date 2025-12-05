@@ -22,7 +22,7 @@ export const FloatingHearts = () => {
       {hearts.map((heart, i) => (
         <motion.div
           key={i}
-          className="absolute text-[#4a90d9]"
+          className="absolute text-[#d4a5a5]"
           style={{
             fontSize: `${heart.size}px`,
             left: `${heart.x}%`,

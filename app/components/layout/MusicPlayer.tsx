@@ -40,7 +40,7 @@ export const MusicPlayer = ({
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.3, delay: 0.1 }}
       onClick={toggleMusic}
-      className="fixed bottom-20 right-6 sm:bottom-6 sm:right-20 w-12 h-12 rounded-full glass border border-[#4a90d9]/30 flex items-center justify-center z-50 hover:border-[#4a90d9]/60 transition-colors"
+      className="fixed bottom-20 right-6 sm:bottom-6 sm:right-20 w-12 h-12 rounded-full glass border border-[#d4a5a5]/30 flex items-center justify-center z-50 hover:border-[#d4a5a5]/60 transition-colors"
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
     >
@@ -57,7 +57,7 @@ export const MusicPlayer = ({
             {[1, 2, 3].map((bar) => (
               <motion.div
                 key={bar}
-                className="w-1 bg-[#4a90d9] rounded-full"
+                className="w-1 bg-[#d4a5a5] rounded-full"
                 animate={{
                   height: ["8px", "16px", "8px"],
                 }}
@@ -75,7 +75,7 @@ export const MusicPlayer = ({
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0 }}
-            className="w-5 h-5 text-[#4a90d9]"
+            className="w-5 h-5 text-[#d4a5a5]"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

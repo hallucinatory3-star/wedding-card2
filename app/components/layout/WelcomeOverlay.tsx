@@ -25,12 +25,12 @@ export const WelcomeOverlay = ({ onEnter }: { onEnter: () => void }) => {
           initial={{ scale: 0, rotate: -180 }}
           animate={{ scale: 1, rotate: 0 }}
           transition={{ duration: 1, type: "spring" }}
-          className="mb-8 mx-auto w-32 h-32 rounded-full border-2 border-[#4a90d9]/50 flex items-center justify-center"
+          className="mb-8 mx-auto w-32 h-32 rounded-full border-2 border-[#d4a5a5]/50 flex items-center justify-center"
         >
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="w-24 h-24 rounded-full border border-dashed border-[#4a90d9]/30 flex items-center justify-center"
+            className="w-24 h-24 rounded-full border border-dashed border-[#d4a5a5]/30 flex items-center justify-center"
           >
             <span className="text-5xl">💍</span>
           </motion.div>
@@ -59,7 +59,7 @@ export const WelcomeOverlay = ({ onEnter }: { onEnter: () => void }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1 }}
           onClick={onEnter}
-          className="px-8 py-4 rounded-full bg-[#4a90d9] text-white font-semibold text-lg font--inter hover:bg-[#2c5f8d] transition-colors flex items-center gap-3 mx-auto"
+          className="px-8 py-4 rounded-full bg-[#d4a5a5] text-white font-semibold text-lg font--inter hover:bg-[#c99090] transition-colors flex items-center gap-3 mx-auto"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >

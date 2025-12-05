@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     images: ["/twitter-image"],
   },
   other: {
-    "theme-color": "#4a90d9",
+    "theme-color": "#d4a5a5",
   },
 };
 
@@ -70,7 +70,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <body
         className={`${playfair.variable} ${cormorant.variable} ${inter.variable} antialiased`}
       >

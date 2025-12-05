@@ -13,7 +13,7 @@ export const FloatingParticles = () => {
       {PARTICLE_DATA.map((particle, i) => (
         <motion.div
           key={i}
-          className="absolute w-1 h-1 bg-[#4a90d9] rounded-full opacity-40"
+          className="absolute w-1 h-1 bg-[#d4a5a5] rounded-full opacity-40"
           initial={{
             x: particle.initialX * windowSize.width,
             y: particle.initialY * windowSize.height,

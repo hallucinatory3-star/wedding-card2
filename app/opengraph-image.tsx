@@ -24,7 +24,7 @@ export default async function Image() {
     (
       <div
         style={{
-          background: 'linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 50%, #1a1a1a 100%)',
+          background: 'linear-gradient(135deg, #fdf8f6 0%, #f4e4e1 50%, #fdf8f6 100%)',
           width: '100%',
           height: '100%',
           display: 'flex',
@@ -108,8 +108,8 @@ export default async function Image() {
             left: '50px',
             width: '60px',
             height: '60px',
-            borderTop: '2px solid #4a90d9',
-            borderLeft: '2px solid #4a90d9',
+            borderTop: '2px solid #d4a5a5',
+            borderLeft: '2px solid #d4a5a5',
             borderTopLeftRadius: '10px',
           }}
         />
@@ -121,8 +121,8 @@ export default async function Image() {
             right: '50px',
             width: '60px',
             height: '60px',
-            borderTop: '2px solid #4a90d9',
-            borderRight: '2px solid #4a90d9',
+            borderTop: '2px solid #d4a5a5',
+            borderRight: '2px solid #d4a5a5',
             borderTopRightRadius: '10px',
           }}
         />
@@ -134,8 +134,8 @@ export default async function Image() {
             left: '50px',
             width: '60px',
             height: '60px',
-            borderBottom: '2px solid #4a90d9',
-            borderLeft: '2px solid #4a90d9',
+            borderBottom: '2px solid #d4a5a5',
+            borderLeft: '2px solid #d4a5a5',
             borderBottomLeftRadius: '10px',
           }}
         />
@@ -147,8 +147,8 @@ export default async function Image() {
             right: '50px',
             width: '60px',
             height: '60px',
-            borderBottom: '2px solid #4a90d9',
-            borderRight: '2px solid #4a90d9',
+            borderBottom: '2px solid #d4a5a5',
+            borderRight: '2px solid #d4a5a5',
             borderBottomRightRadius: '10px',
           }}
         />
@@ -166,7 +166,7 @@ export default async function Image() {
             style={{
               width: '100px',
               height: '1px',
-              background: 'linear-gradient(90deg, transparent, #4a90d9)',
+              background: 'linear-gradient(90deg, transparent, #d4a5a5)',
             }}
           />
           <div
@@ -186,7 +186,7 @@ export default async function Image() {
             style={{
               width: '100px',
               height: '1px',
-              background: 'linear-gradient(90deg, #4a90d9, transparent)',
+              background: 'linear-gradient(90deg, #d4a5a5, transparent)',
             }}
           />
         </div>
@@ -201,7 +201,7 @@ export default async function Image() {
             marginBottom: '25px',
           }}
         >
-          You&apos;re Invited To
+          You&apos;re Invited To Our Wedding
         </div>
 
         {/* Names */}
@@ -216,7 +216,7 @@ export default async function Image() {
           <div
             style={{
               fontSize: '68px',
-              background: 'linear-gradient(135deg, #4a90d9 0%, #7fb3d5 50%, #4a90d9 100%)',
+              background: 'linear-gradient(135deg, #d4a5a5 0%, #e6c5c5 50%, #d4a5a5 100%)',
               backgroundClip: 'text',
               color: 'transparent',
               fontWeight: '600',
@@ -224,12 +224,12 @@ export default async function Image() {
               textShadow: '0 0 40px rgba(74,144,217,0.3)',
             }}
           >
-            {groomName}
+            {brideName}
           </div>
           <div
             style={{
               fontSize: '50px',
-              color: '#4a90d9',
+              color: '#d4a5a5',
               fontStyle: 'italic',
               margin: '5px 0',
             }}
@@ -239,7 +239,7 @@ export default async function Image() {
           <div
             style={{
               fontSize: '68px',
-              background: 'linear-gradient(135deg, #4a90d9 0%, #7fb3d5 50%, #4a90d9 100%)',
+              background: 'linear-gradient(135deg, #d4a5a5 0%, #e6c5c5 50%, #d4a5a5 100%)',
               backgroundClip: 'text',
               color: 'transparent',
               fontWeight: '600',
@@ -247,7 +247,7 @@ export default async function Image() {
               textShadow: '0 0 40px rgba(74,144,217,0.3)',
             }}
           >
-            {brideName}
+            {groomName}
           </div>
         </div>
 
@@ -264,14 +264,14 @@ export default async function Image() {
             style={{
               width: '80px',
               height: '1px',
-              background: 'linear-gradient(90deg, transparent, #4a90d9)',
+              background: 'linear-gradient(90deg, transparent, #d4a5a5)',
             }}
           />
           <div
             style={{
               width: '10px',
               height: '10px',
-              border: '2px solid #4a90d9',
+              border: '2px solid #d4a5a5',
               transform: 'rotate(45deg)',
             }}
           />
@@ -279,7 +279,7 @@ export default async function Image() {
             style={{
               width: '80px',
               height: '1px',
-              background: 'linear-gradient(90deg, #4a90d9, transparent)',
+              background: 'linear-gradient(90deg, #d4a5a5, transparent)',
             }}
           />
         </div>
@@ -287,7 +287,7 @@ export default async function Image() {
         {/* Date */}
         <div
           style={{
-            color: '#7fb3d5',
+            color: '#e6c5c5',
             fontSize: '28px',
             fontStyle: 'italic',
           }}
@@ -306,16 +306,6 @@ export default async function Image() {
           }}
         >
           <span style={{ color: 'rgba(74,144,217,0.5)', fontSize: '20px' }}>✨</span>
-          <span
-            style={{
-              color: 'rgba(74,144,217,0.7)',
-              fontSize: '16px',
-              letterSpacing: '4px',
-              textTransform: 'uppercase',
-            }}
-          >
-            Tap to Open Your Invitation
-          </span>
           <span style={{ color: 'rgba(74,144,217,0.5)', fontSize: '20px' }}>✨</span>
         </div>
       </div>

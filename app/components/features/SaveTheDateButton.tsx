@@ -110,12 +110,12 @@ END:VCALENDAR`;
       <div className="relative">
         <motion.button
           onClick={handleMainButtonClick}
-          className="px-8 py-4 rounded-full bg-[#4a90d9]/10 border border-[#4a90d9]/40 hover:bg-[#4a90d9]/20 hover:border-[#4a90d9] transition-all duration-300 flex items-center gap-3"
+          className="px-8 py-4 rounded-full bg-[#d4a5a5]/10 border border-[#d4a5a5]/40 hover:bg-[#d4a5a5]/20 hover:border-[#d4a5a5] transition-all duration-300 flex items-center gap-3"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
           <svg
-            className="w-5 h-5 text-[#4a90d9]"
+            className="w-5 h-5 text-[#d4a5a5]"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -131,7 +131,7 @@ END:VCALENDAR`;
             Save the Date
           </span>
           <svg
-            className={`w-4 h-4 text-[#4a90d9] transition-transform ${
+            className={`w-4 h-4 text-[#d4a5a5] transition-transform ${
               showOptions ? "rotate-180" : ""
             }`}
             fill="none"
@@ -154,16 +154,16 @@ END:VCALENDAR`;
               initial={{ opacity: 0, y: 10, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 10, scale: 0.95 }}
-              className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-52 rounded-xl border border-[#4a90d9]/30 overflow-hidden z-100 bg-background shadow-xl shadow-black/20"
+              className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-52 rounded-xl border border-[#d4a5a5]/30 overflow-hidden z-100 bg-background shadow-xl shadow-black/20"
             >
               <a
                 href={googleCalendarUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 px-4 py-3 hover:bg-[#4a90d9]/20 transition-colors w-full text-left border-b border-[#4a90d9]/10"
+                className="flex items-center gap-3 px-4 py-3 hover:bg-[#d4a5a5]/20 transition-colors w-full text-left border-b border-[#d4a5a5]/10"
                 onClick={() => setShowOptions(false)}
               >
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="#4a90d9">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="#d4a5a5">
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
                 </svg>
                 <span className="text-sm font-inter">Google Calendar</span>
@@ -173,10 +173,10 @@ END:VCALENDAR`;
                   generateICS();
                   setShowOptions(false);
                 }}
-                className="flex items-center gap-3 px-4 py-3 hover:bg-[#4a90d9]/20 transition-colors w-full text-left border-b border-[#4a90d9]/10"
+                className="flex items-center gap-3 px-4 py-3 hover:bg-[#d4a5a5]/20 transition-colors w-full text-left border-b border-[#d4a5a5]/10"
               >
                 <svg
-                  className="w-5 h-5 text-[#4a90d9]"
+                  className="w-5 h-5 text-[#d4a5a5]"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -195,10 +195,10 @@ END:VCALENDAR`;
                   generateICS();
                   setShowOptions(false);
                 }}
-                className="flex items-center gap-3 px-4 py-3 hover:bg-[#4a90d9]/20 transition-colors w-full text-left"
+                className="flex items-center gap-3 px-4 py-3 hover:bg-[#d4a5a5]/20 transition-colors w-full text-left"
               >
                 <svg
-                  className="w-5 h-5 text-[#4a90d9]"
+                  className="w-5 h-5 text-[#d4a5a5]"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >

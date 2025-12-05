@@ -28,7 +28,7 @@ export const EventCard = ({
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.9, delay, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.2 }}
-      className="glass rounded-3xl p-6 md:p-8 border border-[#4a90d9]/20 hover:border-[#4a90d9]/40 transition-all duration-500"
+      className="glass rounded-3xl p-6 md:p-8 border border-[#d4a5a5]/20 hover:border-[#d4a5a5]/40 transition-all duration-500"
     >
       <motion.h3
         className="text-2xl md:text-3xl font-playfair gradient-text mb-6 text-center"
@@ -39,9 +39,9 @@ export const EventCard = ({
 
       <div className="space-y-4 mb-6">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-[#4a90d9]/10 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-full bg-[#d4a5a5]/10 flex items-center justify-center">
             <svg
-              className="w-5 h-5 text-[#4a90d9]"
+              className="w-5 h-5 text-[#d4a5a5]"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -62,7 +62,7 @@ export const EventCard = ({
 
         {subEvent && (
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[#4a90d9]/10 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full bg-[#d4a5a5]/10 flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-5 h-5"
@@ -80,7 +80,7 @@ export const EventCard = ({
                 <path
                   d="M12 8 C12 8 52 8 52 8 C48 30 42 42 32 50 C22 42 16 30 12 8 Z"
                   fill="none"
-                  stroke="#4a90d9"
+                  stroke="#d4a5a5"
                   strokeWidth="4"
                   strokeLinejoin="round"
                 />
@@ -88,7 +88,7 @@ export const EventCard = ({
                 <path
                   d="M18 12 C26 14 34 14 42 12"
                   fill="none"
-                  stroke="#7fb3d5"
+                  stroke="#e6c5c5"
                   strokeOpacity="0.5"
                   strokeWidth="3"
                   strokeLinecap="round"
@@ -99,7 +99,7 @@ export const EventCard = ({
                   y1="50"
                   x2="32"
                   y2="74"
-                  stroke="#4a90d9"
+                  stroke="#d4a5a5"
                   strokeWidth="4"
                   strokeLinecap="round"
                 />
@@ -110,7 +110,7 @@ export const EventCard = ({
                   rx="18"
                   ry="4"
                   fill="none"
-                  stroke="#4a90d9"
+                  stroke="#d4a5a5"
                   strokeWidth="4"
                 />
               </svg>
@@ -123,9 +123,9 @@ export const EventCard = ({
 
         {time && (
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[#4a90d9]/10 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full bg-[#d4a5a5]/10 flex items-center justify-center">
               <svg
-                className="w-5 h-5 text-[#4a90d9]"
+                className="w-5 h-5 text-[#d4a5a5]"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -147,9 +147,9 @@ export const EventCard = ({
 
         {venue && (
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[#4a90d9]/10 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full bg-[#d4a5a5]/10 flex items-center justify-center">
               <svg
-                className="w-5 h-5 text-[#4a90d9]"
+                className="w-5 h-5 text-[#d4a5a5]"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -178,9 +178,9 @@ export const EventCard = ({
 
         {dressCode && (
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[#4a90d9]/10 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full bg-[#d4a5a5]/10 flex items-center justify-center">
               <svg
-                className="w-5 h-5 text-[#4a90d9]"
+                className="w-5 h-5 text-[#d4a5a5]"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"

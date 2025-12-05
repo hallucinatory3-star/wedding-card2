@@ -25,7 +25,7 @@ export const AnimatedRings = () => {
             cy="50"
             r="45"
             fill="none"
-            stroke="#4a90d9"
+            stroke="#d4a5a5"
             strokeWidth="2"
             initial={{ pathLength: 0 }}
             whileInView={{ pathLength: 1 }}
@@ -36,7 +36,7 @@ export const AnimatedRings = () => {
             cx="50"
             cy="15"
             r="4"
-            fill="#4a90d9"
+            fill="#d4a5a5"
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
@@ -71,7 +71,7 @@ export const AnimatedRings = () => {
             cy="50"
             r="45"
             fill="none"
-            stroke="#7fb3d5"
+            stroke="#e6c5c5"
             strokeWidth="2"
             initial={{ pathLength: 0 }}
             whileInView={{ pathLength: 1 }}
@@ -82,7 +82,7 @@ export const AnimatedRings = () => {
             cx="50"
             cy="15"
             r="4"
-            fill="#7fb3d5"
+            fill="#e6c5c5"
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
@@ -109,7 +109,7 @@ export const AnimatedRings = () => {
         <svg width="24" height="24" viewBox="0 0 24 24">
           <motion.path
             d="M12 2l2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 2z"
-            fill="#4a90d9"
+            fill="#d4a5a5"
             animate={{
               scale: [1, 1.2, 1],
               opacity: [0.8, 1, 0.8],

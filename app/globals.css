@@ -1,22 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f5f7fa;
-  --foreground: #1a1a2e;
-  --accent: #2c5f8d;
-  --accent-light: #c0d6e8;
-  --accent-soft: #7fb3d5;
-  --muted: #5a6c7d;
-}
-
-html.dark,
-html.dark :root {
-  --background: #0f1419;
-  --foreground: #e8eef3;
-  --accent: #4a90d9;
-  --accent-light: #1e3a5f;
-  --accent-soft: #7fb3d5;
-  --muted: #8b9db0;
+  --background: #fdf8f6;
+  --foreground: #4a2c2a;
+  --accent: #d4a5a5;
+  --accent-light: #f4e4e1;
+  --accent-soft: #e6c5c5;
+  --muted: #8b6f6f;
 }
 
 @theme {
@@ -72,7 +62,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #1e4d7a;
+  background: #c99090;
 }
 
 /* Shimmer Effect */
@@ -89,7 +79,7 @@ html {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(44, 95, 141, 0.3) 50%,
+    rgba(212, 165, 165, 0.3) 50%,
     transparent 100%
   );
   background-size: 200% 100%;
@@ -113,10 +103,10 @@ html {
 /* Pulse Glow */
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(44, 95, 141, 0.3);
+    box-shadow: 0 0 20px rgba(212, 165, 165, 0.3);
   }
   50% {
-    box-shadow: 0 0 40px rgba(74, 144, 217, 0.6);
+    box-shadow: 0 0 40px rgba(230, 197, 197, 0.6);
   }
 }
 
@@ -176,15 +166,10 @@ html {
 
 /* Glass Effect */
 .glass {
-  background: rgba(0, 0, 0, 0.03);
+  background: rgba(244, 228, 225, 0.4);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-html.dark .glass {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(212, 165, 165, 0.2);
 }
 
 /* Decorative Border */
@@ -250,11 +235,7 @@ html.dark .glass {
 /* Map Container Styling */
 .map-container {
   overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-}
-
-html.dark .map-container {
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 25px 50px -12px rgba(212, 165, 165, 0.3);
 }
 
 /* Section Divider */
@@ -266,11 +247,7 @@ html.dark .map-container {
 
 /* Ganesha Image Background */
 .ganesha-bg {
-  background-color: #2f3547;
-}
-
-html.dark .ganesha-bg {
-  background-color: transparent;
+  background-color: rgba(244, 228, 225, 0.3);
 }
 
 /* Fade In Up Animation */
@@ -370,11 +347,11 @@ html.dark .ganesha-bg {
 /* Glow Pulse */
 @keyframes glowPulse {
   0%, 100% {
-    box-shadow: 0 0 10px rgba(74, 144, 217, 0.2);
+    box-shadow: 0 0 10px rgba(212, 165, 165, 0.2);
   }
   50% {
-    box-shadow: 0 0 30px rgba(74, 144, 217, 0.5),
-                0 0 60px rgba(74, 144, 217, 0.3);
+    box-shadow: 0 0 30px rgba(230, 197, 197, 0.5),
+                0 0 60px rgba(230, 197, 197, 0.3);
   }
 }
 

@@ -31,7 +31,7 @@ export const RotatingMandala = ({
         delay,
       }}
     >
-      <svg viewBox="0 0 200 200" className="w-full h-full text-[#4a90d9]">
+      <svg viewBox="0 0 200 200" className="w-full h-full text-[#d4a5a5]">
         <defs>
           <pattern
             id={`mandala-pattern-${position}`}
@@ -51,8 +51,8 @@ export const RotatingMandala = ({
             </feMerge>
           </filter>
           <radialGradient id={`mandala-grad-${position}`}>
-            <stop offset="0%" stopColor="#4a90d9" stopOpacity="1" />
-            <stop offset="100%" stopColor="#7fb3d5" stopOpacity="0.8" />
+            <stop offset="0%" stopColor="#d4a5a5" stopOpacity="1" />
+            <stop offset="100%" stopColor="#e6c5c5" stopOpacity="0.8" />
           </radialGradient>
         </defs>
         <g filter={`url(#glow-${position})`}>

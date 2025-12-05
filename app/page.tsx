@@ -25,7 +25,7 @@ import {
   SaveTheDateButton,
   ShareButton,
 } from "./components/features";
-import { WelcomeOverlay, ThemeToggle, MusicPlayer } from "./components/layout";
+import { WelcomeOverlay, MusicPlayer } from "./components/layout";
 
 // Import constants
 import {
@@ -107,8 +107,8 @@ export default function Home() {
           style={{ y: backgroundY }}
           className="absolute inset-0 opacity-20 overflow-hidden"
         >
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-[#4a90d9] rounded-full blur-[150px]" />
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-[#4a90d9] rounded-full blur-[150px]" />
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-[#d4a5a5] rounded-full blur-[150px]" />
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-[#d4a5a5] rounded-full blur-[150px]" />
         </motion.div>
 
         {/* Content */}
@@ -145,7 +145,7 @@ export default function Home() {
             className="mb-6"
           >
             <div className="flex items-center justify-center gap-2 mb-2">
-              <p className="text-xs md:text-sm font-playfair text-[#4a90d9] opacity-80">
+              <p className="text-xs md:text-sm font-playfair text-[#d4a5a5] opacity-80">
                 ॐ श्री गणेशाय नमः
               </p>
             </div>
@@ -171,7 +171,7 @@ export default function Home() {
               transition={{ delay: 0.8, type: "spring" }}
               className="my-2 sm:my-4 md:my-6"
             >
-              <span className="text-3xl sm:text-4xl md:text-6xl text-[#4a90d9] font-cormorant">
+              <span className="text-3xl sm:text-4xl md:text-6xl text-[#d4a5a5] font-cormorant">
                 &amp;
               </span>
             </motion.div>
@@ -201,11 +201,11 @@ export default function Home() {
             transition={{ delay: 1.5, y: { repeat: Infinity, duration: 2 } }}
             className="absolute bottom-10 left-1/2 -translate-x-1/2"
           >
-            <div className="w-6 h-10 rounded-full border-2 border-[#4a90d9]/50 flex items-start justify-center p-2">
+            <div className="w-6 h-10 rounded-full border-2 border-[#d4a5a5]/50 flex items-start justify-center p-2">
               <motion.div
                 animate={{ y: [0, 12, 0] }}
                 transition={{ repeat: Infinity, duration: 1.5 }}
-                className="w-1.5 h-1.5 bg-[#4a90d9] rounded-full"
+                className="w-1.5 h-1.5 bg-[#d4a5a5] rounded-full"
               />
             </div>
           </motion.div>
@@ -255,8 +255,8 @@ export default function Home() {
           transition={{ duration: 1.2 }}
           className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
         >
-          <div className="absolute -top-10 left-1/3 w-48 h-48 sm:w-72 sm:h-72 rounded-full bg-[#4a90d9]/20 blur-[120px]" />
-          <div className="absolute bottom-0 right-1/4 w-52 h-52 sm:w-80 sm:h-80 rounded-full bg-[#7fb3d5]/20 blur-[140px]" />
+          <div className="absolute -top-10 left-1/3 w-48 h-48 sm:w-72 sm:h-72 rounded-full bg-[#d4a5a5]/20 blur-[120px]" />
+          <div className="absolute bottom-0 right-1/4 w-52 h-52 sm:w-80 sm:h-80 rounded-full bg-[#e6c5c5]/20 blur-[140px]" />
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
@@ -265,7 +265,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="glass rounded-3xl p-8 md:p-12 border border-[#4a90d9]/20 relative overflow-hidden"
+            className="glass rounded-3xl p-8 md:p-12 border border-[#d4a5a5]/20 relative overflow-hidden"
           >
             {/* subtle svg pattern */}
             <svg
@@ -371,8 +371,8 @@ export default function Home() {
           transition={{ duration: 1.2 }}
           className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
         >
-          <div className="absolute top-10 left-1/4 w-52 h-52 sm:w-80 sm:h-80 rounded-full bg-[#4a90d9]/15 blur-[140px]" />
-          <div className="absolute -bottom-6 right-1/4 w-64 h-64 sm:w-96 sm:h-96 rounded-full bg-[#7fb3d5]/15 blur-[160px]" />
+          <div className="absolute top-10 left-1/4 w-52 h-52 sm:w-80 sm:h-80 rounded-full bg-[#d4a5a5]/15 blur-[140px]" />
+          <div className="absolute -bottom-6 right-1/4 w-64 h-64 sm:w-96 sm:h-96 rounded-full bg-[#e6c5c5]/15 blur-[160px]" />
         </motion.div>
 
         <div className="max-w-5xl mx-auto">
@@ -381,7 +381,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="glass rounded-3xl p-8 md:p-12 border border-[#4a90d9]/20 relative overflow-hidden"
+            className="glass rounded-3xl p-8 md:p-12 border border-[#d4a5a5]/20 relative overflow-hidden"
           >
             {/* header */}
             <div className="text-center mb-8">
@@ -389,9 +389,9 @@ export default function Home() {
                 Invitation
               </h2>
               <div className="flex items-center justify-center gap-3 mt-4">
-                <span className="block h-px w-16 bg-[#4a90d9]/30" />
+                <span className="block h-px w-16 bg-[#d4a5a5]/30" />
                 <svg
-                  className="w-4 h-4 text-[#4a90d9]/70"
+                  className="w-4 h-4 text-[#d4a5a5]/70"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -399,7 +399,7 @@ export default function Home() {
                 >
                   <path d="M12 3l2.5 5 5 2.5-5 2.5-2.5 5-2.5-5-5-2.5 5-2.5 2.5-5z" />
                 </svg>
-                <span className="block h-px w-16 bg-[#4a90d9]/30" />
+                <span className="block h-px w-16 bg-[#d4a5a5]/30" />
               </div>
             </div>
 
@@ -407,7 +407,7 @@ export default function Home() {
             <blockquote className="relative mb-8">
               <svg
                 aria-hidden
-                className="absolute -top-4 -left-5 w-8 h-8 text-[#4a90d9]/30"
+                className="absolute -top-4 -left-5 w-8 h-8 text-[#d4a5a5]/30"
                 viewBox="0 0 24 24"
                 fill="currentColor"
               >
@@ -420,7 +420,7 @@ export default function Home() {
               </p>
               <svg
                 aria-hidden
-                className="absolute -bottom-2 -right-2 w-8 h-8 rotate-180 text-[#4a90d9]/30"
+                className="absolute -bottom-2 -right-2 w-8 h-8 rotate-180 text-[#d4a5a5]/30"
                 viewBox="0 0 24 24"
                 fill="currentColor"
               >
@@ -483,9 +483,9 @@ export default function Home() {
               {/* event details */}
               <div className="grid sm:grid-cols-3 gap-4 md:gap-6 mt-8">
                 <div className="flex flex-row sm:flex-col items-center justify-center gap-2">
-                  <div className="w-10 h-10 rounded-full bg-[#4a90d9]/10 flex items-center justify-center border border-[#4a90d9]/30 bounce-subtle">
+                  <div className="w-10 h-10 rounded-full bg-[#d4a5a5]/10 flex items-center justify-center border border-[#d4a5a5]/30 bounce-subtle">
                     <svg
-                      className="w-5 h-5 text-[#4a90d9]"
+                      className="w-5 h-5 text-[#d4a5a5]"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -502,12 +502,12 @@ export default function Home() {
                 </div>
                 <div className="flex flex-row sm:flex-col items-center justify-center gap-2">
                   <motion.div
-                    className="w-10 h-10 rounded-full bg-[#4a90d9]/10 flex items-center justify-center border border-[#4a90d9]/30"
+                    className="w-10 h-10 rounded-full bg-[#d4a5a5]/10 flex items-center justify-center border border-[#d4a5a5]/30"
                     whileHover={{ scale: 1.2, rotate: 10 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <svg
-                      className="w-5 h-5 text-[#4a90d9]"
+                      className="w-5 h-5 text-[#d4a5a5]"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -532,12 +532,12 @@ export default function Home() {
                 </div>
                 <div className="flex flex-row sm:flex-col items-center justify-center gap-2">
                   <motion.div
-                    className="w-10 h-10 rounded-full bg-[#4a90d9]/10 flex items-center justify-center border border-[#4a90d9]/30"
+                    className="w-10 h-10 rounded-full bg-[#d4a5a5]/10 flex items-center justify-center border border-[#d4a5a5]/30"
                     whileHover={{ scale: 1.2, rotate: 360 }}
                     transition={{ type: "spring", stiffness: 200, damping: 10 }}
                   >
                     <svg
-                      className="w-5 h-5 text-[#4a90d9]"
+                      className="w-5 h-5 text-[#d4a5a5]"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -550,7 +550,7 @@ export default function Home() {
                       />
                     </svg>
                   </motion.div>
-                  <p className="font-cormorant text-lg">7:30 PM onwards</p>
+                  <p className="font-cormorant text-lg">7:00 PM Onwards</p>
                 </div>
               </div>
 
@@ -595,34 +595,6 @@ export default function Home() {
             <p className="text-muted font-cormorant text-xl mb-2">
               Join us for these special celebrations
             </p>
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              viewport={{ once: true }}
-              className="text-sm md:text-base text-muted-foreground font-inter flex items-center justify-center"
-            >
-              <svg
-                className="w-4 h-4 text-[#4a90d9]"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-              </svg>
-              All events at Zone by the Park, Trikuta Nagar, Jammu
-            </motion.p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -644,7 +616,7 @@ export default function Home() {
             <EventCard
               title="Baraat & Grand Dinner"
               date="Wednesday, February 4th, 2026"
-              time="7:00 PM - 8:00 PM"
+              time="7:00 PM Onwards"
               delay={0.3}
             />
           </div>
@@ -655,15 +627,15 @@ export default function Home() {
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
-            className="mt-12 glass rounded-3xl pt-4 md:p-8 border border-[#4a90d9]/20"
+            className="mt-12 glass rounded-3xl pt-4 md:p-8 border border-[#d4a5a5]/20"
           >
             <h3 className="text-2xl md:text-3xl font-playfair gradient-text mb-6 text-center">
               Venue Location
             </h3>
             <div className="flex items-center justify-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-full bg-[#4a90d9]/10 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-[#d4a5a5]/10 flex items-center justify-center">
                 <svg
-                  className="w-5 h-5 text-[#4a90d9]"
+                  className="w-5 h-5 text-[#d4a5a5]"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -707,12 +679,12 @@ export default function Home() {
               href="https://www.google.com/maps/search/?api=1&query=Zone+by+the+Park+Trikuta+Nagar+Jammu"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-full border border-[#4a90d9]/30 hover:bg-[#4a90d9]/10 transition-all duration-300"
+              className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-full border border-[#d4a5a5]/30 hover:bg-[#d4a5a5]/10 transition-all duration-300"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
               <svg
-                className="w-5 h-5 text-[#4a90d9]"
+                className="w-5 h-5 text-[#d4a5a5]"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -762,21 +734,21 @@ export default function Home() {
             <div>
               <a
                 href="tel:+919419200672"
-                className="hover:text-[#4a90d9] transition-colors"
+                className="hover:text-[#d4a5a5] transition-colors"
               >
                 9419200672
               </a>{" "}
               •{" "}
               <a
                 href="tel:+919419135747"
-                className="hover:text-[#4a90d9] transition-colors"
+                className="hover:text-[#d4a5a5] transition-colors"
               >
                 9419135747
               </a>{" "}
               •{" "}
               <a
                 href="tel:+918007459659"
-                className="hover:text-[#4a90d9] transition-colors"
+                className="hover:text-[#d4a5a5] transition-colors"
               >
                 8007459659
               </a>
@@ -788,9 +760,6 @@ export default function Home() {
           </div>
         </motion.div>
       </footer>
-
-      {/* Theme Toggle */}
-      <ThemeToggle />
 
       {/* Music Player */}
       <MusicPlayer
