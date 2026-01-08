@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fdf8f6;
-  --foreground: #4a2c2a;
-  --accent: #d4a5a5;
-  --accent-light: #f4e4e1;
-  --accent-soft: #e6c5c5;
-  --muted: #8b6f6f;
+  --background: #F1D0D6;
+  --foreground: #52071D;
+  --accent: #8B3A5A;
+  --accent-light: #E8B8C8;
+  --accent-soft: #A04A6A;
+  --muted: #7A4A5A;
 }
 
 @theme {
@@ -62,7 +62,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #c99090;
+  background: #A04A6A;
 }
 
 /* Shimmer Effect */
@@ -79,7 +79,7 @@ html {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(212, 165, 165, 0.3) 50%,
+    rgba(139, 58, 90, 0.3) 50%,
     transparent 100%
   );
   background-size: 200% 100%;
@@ -103,10 +103,10 @@ html {
 /* Pulse Glow */
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(212, 165, 165, 0.3);
+    box-shadow: 0 0 20px rgba(139, 58, 90, 0.3);
   }
   50% {
-    box-shadow: 0 0 40px rgba(230, 197, 197, 0.6);
+    box-shadow: 0 0 40px rgba(160, 74, 106, 0.6);
   }
 }
 
@@ -127,8 +127,8 @@ html {
 }
 
 .gradient-text {
-  --accent: #b67f7f;        /* darker than #d4a5a5 */
-  --accent-soft: #a87070;   /* even deeper for the mid-tone */
+  --accent: #8B3A5A;        /* burgundy-pink */
+  --accent-soft: #A04A6A;   /* medium burgundy-pink */
   
   background: linear-gradient(
     135deg,
@@ -173,10 +173,10 @@ html {
 
 /* Glass Effect */
 .glass {
-  background: rgba(244, 228, 225, 0.4);
+  background: rgba(232, 184, 200, 0.4);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(212, 165, 165, 0.2);
+  border: 1px solid rgba(139, 58, 90, 0.2);
 }
 
 /* Decorative Border */
@@ -242,7 +242,7 @@ html {
 /* Map Container Styling */
 .map-container {
   overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(212, 165, 165, 0.3);
+  box-shadow: 0 25px 50px -12px rgba(139, 58, 90, 0.3);
 }
 
 /* Section Divider */
@@ -254,7 +254,7 @@ html {
 
 /* Ganesha Image Background */
 .ganesha-bg {
-  background-color: rgba(244, 228, 225, 0.3);
+  background-color: rgba(232, 184, 200, 0.3);
 }
 
 /* Fade In Up Animation */
@@ -354,11 +354,11 @@ html {
 /* Glow Pulse */
 @keyframes glowPulse {
   0%, 100% {
-    box-shadow: 0 0 10px rgba(212, 165, 165, 0.2);
+    box-shadow: 0 0 10px rgba(139, 58, 90, 0.2);
   }
   50% {
-    box-shadow: 0 0 30px rgba(230, 197, 197, 0.5),
-                0 0 60px rgba(230, 197, 197, 0.3);
+    box-shadow: 0 0 30px rgba(160, 74, 106, 0.5),
+                0 0 60px rgba(160, 74, 106, 0.3);
   }
 }
 

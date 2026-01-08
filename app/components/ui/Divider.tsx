@@ -9,19 +9,19 @@ export const Divider = () => (
       initial={{ width: 0 }}
       whileInView={{ width: 80 }}
       transition={{ duration: 0.8 }}
-      className="h-px bg-linear-to-r from-transparent to-[#d4a5a5]"
+      className="h-px bg-linear-to-r from-transparent to-[#8B3A5A]"
     />
     <motion.div
       initial={{ scale: 0, rotate: 0 }}
       whileInView={{ scale: 1, rotate: 45 }}
       transition={{ duration: 0.5 }}
-      className="w-3 h-3 border-2 border-[#d4a5a5]"
+      className="w-3 h-3 border-2 border-[#8B3A5A]"
     />
     <motion.div
       initial={{ width: 0 }}
       whileInView={{ width: 80 }}
       transition={{ duration: 0.8 }}
-      className="h-px bg-linear-to-l from-transparent to-[#d4a5a5]"
+      className="h-px bg-linear-to-l from-transparent to-[#8B3A5A]"
     />
   </div>
 );

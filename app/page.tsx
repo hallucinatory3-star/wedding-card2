@@ -4,7 +4,6 @@ import {
   motion,
   useScroll,
   useTransform,
-  AnimatePresence,
 } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
@@ -25,7 +24,7 @@ import {
   SaveTheDateButton,
   ShareButton,
 } from "./components/features";
-import { WelcomeOverlay, MusicPlayer } from "./components/layout";
+import { MusicPlayer } from "./components/layout";
 
 // Import constants
 import {
@@ -39,76 +38,46 @@ import {
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: containerRef });
-  const [showWelcome, setShowWelcome] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // Lock body scroll when welcome overlay is shown
+  // Auto-start music on component mount
   useEffect(() => {
-    if (showWelcome) {
-      // Prevent scrolling on both html and body
-      document.documentElement.style.overflow = "hidden";
-      document.body.style.overflow = "hidden";
-      // Prevent touch scrolling on mobile
-      document.body.style.position = "fixed";
-      document.body.style.width = "100%";
-      document.body.style.height = "100%";
-    } else {
-      document.documentElement.style.overflow = "";
-      document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.width = "";
-      document.body.style.height = "";
-    }
-    return () => {
-      document.documentElement.style.overflow = "";
-      document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.width = "";
-      document.body.style.height = "";
-    };
-  }, [showWelcome]);
-
-  const handleEnter = async () => {
-    setShowWelcome(false);
-
-    // Start music on enter
     if (!audioRef.current) {
       audioRef.current = new Audio(MUSIC_URL);
       audioRef.current.loop = true;
       audioRef.current.volume = 0.4;
     }
 
-    try {
-      await audioRef.current.play();
-      setIsPlaying(true);
-    } catch {
-      console.log("Autoplay failed, user can use music button");
-    }
-  };
+    const startMusic = async () => {
+      try {
+        await audioRef.current?.play();
+        setIsPlaying(true);
+      } catch {
+        console.log("Autoplay failed, user can use music button");
+      }
+    };
+
+    startMusic();
+  }, []);
 
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
   return (
     <div ref={containerRef} className="min-h-screen bg-background relative overflow-x-hidden w-full">
-      {/* Welcome Overlay */}
-      <AnimatePresence>
-        {showWelcome && <WelcomeOverlay onEnter={handleEnter} />}
-      </AnimatePresence>
-
       <FloatingParticles />
       <FloatingHearts />
       <FloatingFlowers />
 
       {/* Hero Section */}
-      <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-4 w-full max-w-full">
+      <section className="p-4 flex flex-col items-center justify-center relative overflow-hidden w-full max-w-full">
         {/* Animated Background */}
         <motion.div
           style={{ y: backgroundY }}
           className="absolute inset-0 opacity-20 overflow-hidden"
         >
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-[#d4a5a5] rounded-full blur-[150px]" />
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-[#d4a5a5] rounded-full blur-[150px]" />
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-[#8B3A5A] rounded-full blur-[150px]" />
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-[#8B3A5A] rounded-full blur-[150px]" />
         </motion.div>
 
         {/* Content */}
@@ -123,7 +92,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-muted uppercase tracking-[0.3em] text-sm md:text-base mb-8 font-inter"
+            className="text-muted uppercase tracking-[0.3em] text-sm md:text-base font-inter"
           >
             We&apos;re Getting Married
           </motion.p>
@@ -171,7 +140,7 @@ export default function Home() {
               transition={{ delay: 0.8, type: "spring" }}
               className="my-2 sm:my-4 md:my-6"
             >
-              <span className="text-3xl sm:text-4xl md:text-6xl text-[#d4a5a5] font-cormorant">
+              <span className="text-3xl sm:text-4xl md:text-6xl text-[#8B3A5A] font-cormorant">
                 &amp;
               </span>
             </motion.div>
@@ -201,11 +170,11 @@ export default function Home() {
             transition={{ delay: 1.5, y: { repeat: Infinity, duration: 2 } }}
             className="absolute bottom-10 left-1/2 -translate-x-1/2"
           >
-            <div className="w-6 h-10 rounded-full border-2 border-[#d4a5a5]/50 flex items-start justify-center p-2">
+            <div className="w-6 h-10 rounded-full border-2 border-[#8B3A5A]/50 flex items-start justify-center p-2">
               <motion.div
                 animate={{ y: [0, 12, 0] }}
                 transition={{ repeat: Infinity, duration: 1.5 }}
-                className="w-1.5 h-1.5 bg-[#d4a5a5] rounded-full"
+                className="w-1.5 h-1.5 bg-[#8B3A5A] rounded-full"
               />
             </div>
           </motion.div>
@@ -240,127 +209,9 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="section-divider max-w-2xl mx-auto" />
-
-      {/* Blessing Message Section */}
-      <section className="py-20 md:py-32 px-4 relative">
-        <AnimatedFlourish position="bottom-left" size="lg" />
-        <AnimatedFlourish position="bottom-right" size="lg" />
-        {/* soft decorative background */}
-        <motion.div
-          aria-hidden
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2 }}
-          className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
-        >
-          <div className="absolute -top-10 left-1/3 w-48 h-48 sm:w-72 sm:h-72 rounded-full bg-[#d4a5a5]/20 blur-[120px]" />
-          <div className="absolute bottom-0 right-1/4 w-52 h-52 sm:w-80 sm:h-80 rounded-full bg-[#e6c5c5]/20 blur-[140px]" />
-        </motion.div>
-
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 40, scale: 0.98 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="glass rounded-3xl p-8 md:p-12 border border-[#d4a5a5]/20 relative overflow-hidden"
-          >
-            {/* subtle svg pattern */}
-            <svg
-              aria-hidden
-              className="absolute -top-10 -right-10 w-45 h-45 text-primary/10"
-              viewBox="0 0 200 200"
-              fill="none"
-            >
-              <path
-                d="M100 10c30 40 50 70 80 80-30 10-50 40-80 80-30-40-50-70-80-80 30-10 50-40 80-80z"
-                fill="currentColor"
-              />
-            </svg>
-
-            {/* emblem */}
-            <div className="flex justify-center mb-6">
-              <div className="relative">
-                <div
-                  className="mx-auto w-16 h-16 rounded-full
-                        bg-primary/10 border border-primary/30
-                        flex items-center justify-center glow-pulse"
-                >
-                  <svg
-                    className="w-8 h-8 text-primary"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M12 3c2.5 3.5 4.2 6.2 6.8 7-2.6.8-4.3 3.5-6.8 7-2.5-3.5-4.2-6.2-6.8-7 2.6-.8 4.3-3.5 6.8-7z" />
-                  </svg>
-                </div>
-
-                <div
-                  className="absolute inset-0 -z-10 animate-pulse
-                        rounded-full blur-md bg-primary/10"
-                />
-              </div>
-            </div>
-
-            {/* quote */}
-            <div className="relative">
-              <svg
-                aria-hidden
-                className="absolute -top-4 -left-5 w-8 h-8 text-primary/30"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M9 11H5a4 4 0 014-4V3C5.582 3 3 5.582 3 9v8h6v-6zm12 0h-4a4 4 0 014-4V3c-3.418 0-6 2.582-6 6v8h6v-6z" />
-              </svg>
-
-              <p className="text-center z-1 text-lg md:text-2xl font-cormorant leading-relaxed text-foreground">
-                By the grace of the Almighty and with the blessings of our
-                elders, we joyfully invite you to join us as we embark on our
-                journey of love and togetherness. Your presence will make our
-                celebration complete.
-              </p>
-
-              <svg
-                aria-hidden
-                className="absolute -bottom-4 -right-5 w-8 h-8 rotate-180 text-primary/30"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M9 11H5a4 4 0 014-4V3C5.582 3 3 5.582 3 9v8h6v-6zm12 0h-4a4 4 0 014-4V3c-3.418 0-6 2.582-6 6v8h6v-6z" />
-              </svg>
-            </div>
-
-            {/* fine divider */}
-            <div className="flex items-center justify-center gap-3 mt-8">
-              <span className="block h-px w-16 bg-primary/30" />
-              <svg
-                className="w-4 h-4 text-primary/70"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              >
-                <path d="M12 3l2.5 5 5 2.5-5 2.5-2.5 5-2.5-5-5-2.5 5-2.5 2.5-5z" />
-              </svg>
-              <span className="block h-px w-16 bg-primary/30" />
-            </div>
-
-            {/* subtext */}
-            <p className="mt-4 text-center text-sm md:text-base text-muted-foreground font-inter">
-              With love, from our families to yours
-            </p>
-          </motion.div>
-        </div>
-      </section>
 
       {/* New Invitation Section */}
-      <section className="py-20 md:py-32 px-4 relative">
+      <section className="py-20 md:py-32 relative">
         <RotatingMandala position="center" delay={4} />
         {/* soft background accents */}
         <motion.div
@@ -371,8 +222,8 @@ export default function Home() {
           transition={{ duration: 1.2 }}
           className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
         >
-          <div className="absolute top-10 left-1/4 w-52 h-52 sm:w-80 sm:h-80 rounded-full bg-[#d4a5a5]/15 blur-[140px]" />
-          <div className="absolute -bottom-6 right-1/4 w-64 h-64 sm:w-96 sm:h-96 rounded-full bg-[#e6c5c5]/15 blur-[160px]" />
+          <div className="absolute top-10 left-1/4 w-52 h-52 sm:w-80 sm:h-80 rounded-full bg-[#8B3A5A]/15 blur-[140px]" />
+          <div className="absolute -bottom-6 right-1/4 w-64 h-64 sm:w-96 sm:h-96 rounded-full bg-[#A04A6A]/15 blur-[160px]" />
         </motion.div>
 
         <div className="max-w-5xl mx-auto">
@@ -381,7 +232,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="glass rounded-3xl p-8 md:p-12 border border-[#d4a5a5]/20 relative overflow-hidden"
+            className="glass rounded-3xl p-8 md:p-12 border border-[#8B3A5A]/20 relative overflow-hidden"
           >
             {/* header */}
             <div className="text-center mb-8">
@@ -389,9 +240,9 @@ export default function Home() {
                 Invitation
               </h2>
               <div className="flex items-center justify-center gap-3 mt-4">
-                <span className="block h-px w-16 bg-[#d4a5a5]/30" />
+                <span className="block h-px w-16 bg-[#8B3A5A]/30" />
                 <svg
-                  className="w-4 h-4 text-[#d4a5a5]/70"
+                  className="w-4 h-4 text-[#8B3A5A]/70"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -399,7 +250,7 @@ export default function Home() {
                 >
                   <path d="M12 3l2.5 5 5 2.5-5 2.5-2.5 5-2.5-5-5-2.5 5-2.5 2.5-5z" />
                 </svg>
-                <span className="block h-px w-16 bg-[#d4a5a5]/30" />
+                <span className="block h-px w-16 bg-[#8B3A5A]/30" />
               </div>
             </div>
 
@@ -407,7 +258,7 @@ export default function Home() {
             <blockquote className="relative mb-8">
               <svg
                 aria-hidden
-                className="absolute -top-4 -left-5 w-8 h-8 text-[#d4a5a5]/30"
+                className="absolute -top-4 -left-5 w-8 h-8 text-[#8B3A5A]/30"
                 viewBox="0 0 24 24"
                 fill="currentColor"
               >
@@ -420,7 +271,7 @@ export default function Home() {
               </p>
               <svg
                 aria-hidden
-                className="absolute -bottom-2 -right-2 w-8 h-8 rotate-180 text-[#d4a5a5]/30"
+                className="absolute -bottom-2 -right-2 w-8 h-8 rotate-180 text-[#8B3A5A]/30"
                 viewBox="0 0 24 24"
                 fill="currentColor"
               >
@@ -448,7 +299,7 @@ export default function Home() {
               </p>
 
               {/* names */}
-              <div className="mt-6 mb-2">
+              <div className="mt-6">
                 <motion.h3
                   className="text-3xl md:text-5xl font-playfair gradient-text"
                   initial={{ opacity: 0, x: -30 }}
@@ -459,12 +310,12 @@ export default function Home() {
                   Dr. Shagun
                 </motion.h3>
               </div>
-              <div className="my-4">
-                <AnimatedRings />
-              </div>
               <p className="font-cormorant text-lg md:text-xl text-muted">
                 as she begins a timeless journey hand in hand with
               </p>
+              <div className="my-4">
+                <AnimatedRings />
+              </div>
               <div className="mt-2 mb-4">
                 <motion.h3
                   className="text-3xl md:text-5xl font-playfair gradient-text"
@@ -483,9 +334,9 @@ export default function Home() {
               {/* event details */}
               <div className="grid sm:grid-cols-3 gap-4 md:gap-6 mt-8">
                 <div className="flex flex-row sm:flex-col items-center justify-center gap-2">
-                  <div className="w-10 h-10 rounded-full bg-[#d4a5a5]/10 flex items-center justify-center border border-[#d4a5a5]/30 bounce-subtle">
+                  <div className="w-10 h-10 rounded-full bg-[#8B3A5A]/10 flex items-center justify-center border border-[#8B3A5A]/30 bounce-subtle">
                     <svg
-                      className="w-5 h-5 text-[#d4a5a5]"
+                      className="w-5 h-5 text-[#8B3A5A]"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -502,12 +353,12 @@ export default function Home() {
                 </div>
                 <div className="flex flex-row sm:flex-col items-center justify-center gap-2">
                   <motion.div
-                    className="w-10 h-10 rounded-full bg-[#d4a5a5]/10 flex items-center justify-center border border-[#d4a5a5]/30"
+                    className="w-10 h-10 rounded-full bg-[#8B3A5A]/10 flex items-center justify-center border border-[#8B3A5A]/30"
                     whileHover={{ scale: 1.2, rotate: 10 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <svg
-                      className="w-5 h-5 text-[#d4a5a5]"
+                      className="w-5 h-5 text-[#8B3A5A]"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -532,12 +383,12 @@ export default function Home() {
                 </div>
                 <div className="flex flex-row sm:flex-col items-center justify-center gap-2">
                   <motion.div
-                    className="w-10 h-10 rounded-full bg-[#d4a5a5]/10 flex items-center justify-center border border-[#d4a5a5]/30"
+                    className="w-10 h-10 rounded-full bg-[#8B3A5A]/10 flex items-center justify-center border border-[#8B3A5A]/30"
                     whileHover={{ scale: 1.2, rotate: 360 }}
                     transition={{ type: "spring", stiffness: 200, damping: 10 }}
                   >
                     <svg
-                      className="w-5 h-5 text-[#d4a5a5]"
+                      className="w-5 h-5 text-[#8B3A5A]"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -565,10 +416,14 @@ export default function Home() {
                 <h4 className="text-xl md:text-2xl font-playfair gradient-text mb-3">
                   Best Compliments,
                 </h4>
-                <ul className="list-disc list-inside space-y-1 text-left mx-auto max-w-md font-cormorant text-lg">
-                  <li>Adv. Achyut Dubey.</li>
-                  <li>Aditi Dubey and Akshay Sharma.</li>
-                </ul>
+                <div className="flex items-center justify-between space-y-1 text-left mx-auto font-cormorant text-lg">
+                  <p className="font-semibold">Adv. Achyut Dubey</p>
+                  <p className="font-semibold">Mr. Munish Sharma</p>
+                  <p className="font-semibold">Mr. Anish Sharma</p>
+                </div>
+                <p className="text-center text-base md:text-lg text-foreground italic font-cormorant">
+                  Count a special invite from her newly married Twin and brother-in-law: <span className="font-semibold">Aditi Akshay Sharma.</span>
+                  </p>
               </div>
             </div>
           </motion.div>
@@ -602,6 +457,8 @@ export default function Home() {
               title="Mehandi Night"
               date="Tuesday, February 3rd, 2026"
               time=""
+              venue="Zone by the Park"
+              address="Trikuta Nagar, Jammu"
               subEvent="Cocktail & Dinner"
               dressCode="Saree / Western"
               delay={0}
@@ -610,6 +467,8 @@ export default function Home() {
               title="Saant / Haldi Ceremony"
               date="Wednesday, February 4th, 2026"
               time="10:00 AM"
+              venue="Zone by the Park"
+              address="Trikuta Nagar, Jammu"
               dressCode="Yellow Theme"
               delay={0.15}
             />
@@ -617,6 +476,8 @@ export default function Home() {
               title="Baraat & Grand Dinner"
               date="Wednesday, February 4th, 2026"
               time="7:00 PM Onwards"
+              venue="Zone by the Park"
+              address="Trikuta Nagar, Jammu"
               delay={0.3}
             />
           </div>
@@ -627,15 +488,15 @@ export default function Home() {
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
-            className="mt-12 glass rounded-3xl pt-4 md:p-8 border border-[#d4a5a5]/20"
+            className="mt-12 glass rounded-3xl pt-4 md:p-8 border border-[#8B3A5A]/20"
           >
             <h3 className="text-2xl md:text-3xl font-playfair gradient-text mb-6 text-center">
               Venue Location
             </h3>
             <div className="flex items-center justify-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-full bg-[#d4a5a5]/10 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-[#8B3A5A]/10 flex items-center justify-center">
                 <svg
-                  className="w-5 h-5 text-[#d4a5a5]"
+                  className="w-5 h-5 text-[#8B3A5A]"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -679,12 +540,12 @@ export default function Home() {
               href="https://www.google.com/maps/search/?api=1&query=Zone+by+the+Park+Trikuta+Nagar+Jammu"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-full border border-[#d4a5a5]/30 hover:bg-[#d4a5a5]/10 transition-all duration-300"
+              className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-full border border-[#8B3A5A]/30 hover:bg-[#8B3A5A]/10 transition-all duration-300"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
               <svg
-                className="w-5 h-5 text-[#d4a5a5]"
+                className="w-5 h-5 text-[#8B3A5A]"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -734,21 +595,21 @@ export default function Home() {
             <div>
               <a
                 href="tel:+919419200672"
-                className="hover:text-[#d4a5a5] transition-colors"
+                className="hover:text-[#8B3A5A] transition-colors"
               >
                 9419200672
               </a>{" "}
               •{" "}
               <a
                 href="tel:+919419135747"
-                className="hover:text-[#d4a5a5] transition-colors"
+                className="hover:text-[#8B3A5A] transition-colors"
               >
                 9419135747
               </a>{" "}
               •{" "}
               <a
                 href="tel:+918007459659"
-                className="hover:text-[#d4a5a5] transition-colors"
+                className="hover:text-[#8B3A5A] transition-colors"
               >
                 8007459659
               </a>

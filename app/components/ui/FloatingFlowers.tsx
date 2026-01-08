@@ -41,7 +41,7 @@ export const FloatingFlowers = () => {
             height="24"
             viewBox="0 0 24 24"
             fill="none"
-            className="text-[#d4a5a5]"
+            className="text-[#8B3A5A]"
           >
             {/* Flower petals */}
             <motion.circle

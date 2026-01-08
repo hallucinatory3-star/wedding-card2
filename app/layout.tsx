@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     images: ["/twitter-image"],
   },
   other: {
-    "theme-color": "#d4a5a5",
+    "theme-color": "#8B3A5A",
   },
 };
 

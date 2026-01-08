@@ -4,7 +4,7 @@ import confetti from "canvas-confetti";
 export const fireConfetti = () => {
   const duration = 4000;
   const animationEnd = Date.now() + duration;
-  const colors = ["#d4a5a5", "#e6c5c5", "#f4e4e1", "#ffd9d9", "#ffd700", "#ffffff"];
+  const colors = ["#8B3A5A", "#A04A6A", "#52071D", "#E8B8C8", "#ffd700", "#ffffff"];
 
   const frame = () => {
     confetti({
