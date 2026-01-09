@@ -5,7 +5,7 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 
 // Import components
@@ -24,42 +24,18 @@ import {
   SaveTheDateButton,
   ShareButton,
 } from "../components/features";
-import { MusicPlayer } from "../components/layout";
 
 // Import constants
 import {
   WEDDING_DATE,
   GROOM_NAME,
   BRIDE_NAME,
-  MUSIC_URL,
 } from "../constants/wedding-data";
 
 // Main Page Component
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: containerRef });
-  const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  // Auto-start music on component mount
-  useEffect(() => {
-    if (!audioRef.current) {
-      audioRef.current = new Audio(MUSIC_URL);
-      audioRef.current.loop = true;
-      audioRef.current.volume = 0.4;
-    }
-
-    const startMusic = async () => {
-      try {
-        await audioRef.current?.play();
-        setIsPlaying(true);
-      } catch {
-        console.log("Autoplay failed, user can use music button");
-      }
-    };
-
-    startMusic();
-  }, []);
 
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
@@ -467,13 +443,6 @@ export default function Home() {
           </div>
         </motion.div>
       </footer>
-
-      {/* Music Player */}
-      <MusicPlayer
-        audioRef={audioRef}
-        isPlaying={isPlaying}
-        setIsPlaying={setIsPlaying}
-      />
     </div>
   );
 }

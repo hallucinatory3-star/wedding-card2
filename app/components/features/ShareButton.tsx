@@ -39,8 +39,8 @@ export const ShareButton = () => {
           e.stopPropagation();
           setShowOptions(!showOptions);
         }}
-        whileHover={{ scale: 1.1, color: "#8B3A5A" }}
-        className="text-muted transition-colors"
+        whileHover={{ scale: 1.1, color: "#0B3D2E" }}
+        className="text-[#0B3D2E]/70 transition-colors"
       >
         <svg
           className="w-6 h-6"
@@ -63,14 +63,14 @@ export const ShareButton = () => {
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-44 rounded-xl border border-[#8B3A5A]/30 overflow-hidden z-100 bg-background shadow-xl shadow-black/20"
+            className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-44 rounded-xl border border-[#0B3D2E]/30 overflow-hidden z-100 bg-background shadow-xl shadow-black/20"
           >
             <button
               onClick={() => {
                 shareWhatsApp();
                 setShowOptions(false);
               }}
-              className="flex items-center gap-3 px-4 py-3 hover:bg-[#8B3A5A]/20 transition-colors w-full"
+              className="flex items-center gap-3 px-4 py-3 hover:bg-[#0B3D2E]/20 transition-colors w-full"
             >
               <svg
                 className="w-5 h-5 text-green-500"
@@ -86,10 +86,10 @@ export const ShareButton = () => {
                 copyLink();
                 setShowOptions(false);
               }}
-              className="flex items-center gap-3 px-4 py-3 hover:bg-[#8B3A5A]/20 transition-colors w-full"
+              className="flex items-center gap-3 px-4 py-3 hover:bg-[#0B3D2E]/20 transition-colors w-full"
             >
               <svg
-                className="w-5 h-5 text-[#8B3A5A]"
+                className="w-5 h-5 text-[#0B3D2E]"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"

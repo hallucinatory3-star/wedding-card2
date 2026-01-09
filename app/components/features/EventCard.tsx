@@ -55,8 +55,8 @@ export const EventCard = ({
             </svg>
           </div>
           <div>
-            <p className="text-sm text-muted">Date</p>
-            <p className="font-semibold text-md">{date}</p>
+            <p className="text-sm text-[#0B3D2E]/70">Date</p>
+            <p className="font-semibold text-md text-[#0B3D2E]">{date}</p>
           </div>
         </div>
 
@@ -139,8 +139,8 @@ export const EventCard = ({
               </svg>
             </div>
             <div>
-              <p className="text-sm text-muted">Time</p>
-              <p className="font-bold text-md">{time}</p>
+              <p className="text-sm text-[#0B3D2E]/70">Time</p>
+              <p className="font-bold text-md text-[#0B3D2E]">{time}</p>
             </div>
           </div>
         )}
@@ -169,9 +169,9 @@ export const EventCard = ({
               </svg>
             </div>
             <div>
-              <p className="text-sm text-muted">Venue</p>
-              <p className="font-semibold text-md">{venue}</p>
-              {address && <p className="text-sm text-muted">{address}</p>}
+              <p className="text-sm text-[#0B3D2E]/70">Venue</p>
+              <p className="font-semibold text-md text-[#0B3D2E]">{venue}</p>
+              {address && <p className="text-sm text-[#0B3D2E]/70">{address}</p>}
             </div>
           </div>
         )}
@@ -194,8 +194,8 @@ export const EventCard = ({
               </svg>
             </div>
             <div>
-              <p className="text-sm text-muted">Dress Code</p>
-              <p className="font-semibold text-md">{dressCode}</p>
+              <p className="text-sm text-[#0B3D2E]/70">Dress Code</p>
+              <p className="font-semibold text-md text-[#0B3D2E]">{dressCode}</p>
             </div>
           </div>
         )}

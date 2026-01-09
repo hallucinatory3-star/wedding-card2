@@ -110,12 +110,12 @@ END:VCALENDAR`;
       <div className="relative">
         <motion.button
           onClick={handleMainButtonClick}
-          className="px-8 py-4 rounded-full bg-[#8B3A5A]/10 border border-[#8B3A5A]/40 hover:bg-[#8B3A5A]/20 hover:border-[#8B3A5A] transition-all duration-300 flex items-center gap-3"
+          className="px-8 py-4 rounded-full bg-[#0B3D2E]/10 border border-[#0B3D2E]/40 hover:bg-[#0B3D2E]/20 hover:border-[#0B3D2E] transition-all duration-300 flex items-center gap-3"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
           <svg
-            className="w-5 h-5 text-[#8B3A5A]"
+            className="w-5 h-5 text-[#0B3D2E]"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -127,11 +127,11 @@ END:VCALENDAR`;
               d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
             />
           </svg>
-          <span className="font-playfair text-lg gradient-text">
+          <span className="font-playfair text-lg text-[#0B3D2E]">
             Save the Date
           </span>
           <svg
-            className={`w-4 h-4 text-[#8B3A5A] transition-transform ${
+            className={`w-4 h-4 text-[#0B3D2E] transition-transform ${
               showOptions ? "rotate-180" : ""
             }`}
             fill="none"
@@ -160,10 +160,10 @@ END:VCALENDAR`;
                 href={googleCalendarUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 px-4 py-3 hover:bg-[#8B3A5A]/20 transition-colors w-full text-left border-b border-[#8B3A5A]/10"
+                className="flex items-center gap-3 px-4 py-3 hover:bg-[#0B3D2E]/20 transition-colors w-full text-left border-b border-[#0B3D2E]/10"
                 onClick={() => setShowOptions(false)}
               >
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="#8B3A5A">
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="#0B3D2E">
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
                 </svg>
                 <span className="text-sm font-inter">Google Calendar</span>
@@ -173,10 +173,10 @@ END:VCALENDAR`;
                   generateICS();
                   setShowOptions(false);
                 }}
-                className="flex items-center gap-3 px-4 py-3 hover:bg-[#8B3A5A]/20 transition-colors w-full text-left border-b border-[#8B3A5A]/10"
-              >
+                className="flex items-center gap-3 px-4 py-3 hover:bg-[#0B3D2E]/20 transition-colors w-full text-left border-b border-[#0B3D2E]/10"
+                >
                 <svg
-                  className="w-5 h-5 text-[#8B3A5A]"
+                  className="w-5 h-5 text-[#0B3D2E]"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -195,10 +195,10 @@ END:VCALENDAR`;
                   generateICS();
                   setShowOptions(false);
                 }}
-                className="flex items-center gap-3 px-4 py-3 hover:bg-[#8B3A5A]/20 transition-colors w-full text-left"
-              >
+                className="flex items-center gap-3 px-4 py-3 hover:bg-[#0B3D2E]/20 transition-colors w-full text-left"
+                >
                 <svg
-                  className="w-5 h-5 text-[#8B3A5A]"
+                  className="w-5 h-5 text-[#0B3D2E]"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >

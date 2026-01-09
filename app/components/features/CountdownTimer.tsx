@@ -69,10 +69,10 @@ export const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
             className="flex flex-col items-center"
           >
             <motion.div
-              className="w-16 h-16 md:w-24 md:h-24 rounded-2xl glass flex items-center justify-center border border-[#8B3A5A]/30"
+              className="w-16 h-16 md:w-24 md:h-24 rounded-2xl glass flex items-center justify-center border border-[#0B3D2E]/30"
               whileHover={{
                 scale: 1.05,
-                borderColor: "rgba(74, 144, 217, 0.6)",
+                borderColor: "rgba(11, 61, 46, 0.6)",
               }}
             >
               <AnimatePresence mode="wait">
@@ -81,13 +81,13 @@ export const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
-                  className="text-2xl md:text-4xl font-bold gradient-text font-playfair"
+                  className="text-2xl md:text-4xl font-bold text-[#0B3D2E] font-playfair"
                 >
                   {String(block.value).padStart(2, "0")}
                 </motion.span>
               </AnimatePresence>
             </motion.div>
-            <span className="mt-2 text-xs md:text-sm text-muted uppercase tracking-widest font-inter">
+            <span className="mt-2 text-xs md:text-sm text-[#0B3D2E]/70 uppercase tracking-widest font-inter">
               {block.label}
             </span>
           </motion.div>
@@ -103,7 +103,7 @@ export const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
             className="mt-8 text-center"
           >
             <motion.p
-              className="text-2xl md:text-4xl font-playfair gradient-text"
+              className="text-2xl md:text-4xl font-playfair text-[#0B3D2E]"
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ repeat: Infinity, duration: 2 }}
             >

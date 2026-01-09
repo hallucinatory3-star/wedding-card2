@@ -5,7 +5,7 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 
 // Import components
@@ -24,42 +24,18 @@ import {
   SaveTheDateButton,
   ShareButton,
 } from "../components/features";
-import { MusicPlayer } from "../components/layout";
 
 // Import constants
 import {
   WEDDING_DATE,
   GROOM_NAME,
   BRIDE_NAME,
-  MUSIC_URL,
 } from "../constants/wedding-data";
 
 // Main Page Component
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: containerRef });
-  const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  // Auto-start music on component mount
-  useEffect(() => {
-    if (!audioRef.current) {
-      audioRef.current = new Audio(MUSIC_URL);
-      audioRef.current.loop = true;
-      audioRef.current.volume = 0.4;
-    }
-
-    const startMusic = async () => {
-      try {
-        await audioRef.current?.play();
-        setIsPlaying(true);
-      } catch {
-        console.log("Autoplay failed, user can use music button");
-      }
-    };
-
-    startMusic();
-  }, []);
 
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
@@ -121,7 +97,7 @@ export default function Home() {
               {GROOM_NAME}
             </h1> */}
             <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-playfair text-[#0B3D2E] leading-tight text-center">
-              #ShavikMaiSaugun
+              #ShaiVikmeSauGun
               </h1>
           </motion.div>
 
@@ -168,7 +144,7 @@ export default function Home() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h2 className="text-3xl md:text-5xl font-playfair gradient-text mb-4 zoom-in-out">
+            <h2 className="text-3xl md:text-5xl font-playfair text-[#0B3D2E] mb-4 zoom-in-out">
               Counting Down To Forever
             </h2>
           </motion.div>
@@ -234,7 +210,7 @@ export default function Home() {
             <div className="space-y-6 max-w-4xl text-2xl mx-auto font-cormorant text-[#0B3D2E]">
               {/* Opening Line */}
               <p className="text-center md:text-xl italic">
-                He carried a quiet certainty in his heart for years, and when her smile finally met that faith - their forever began. To him, she was the moment that turned time into destiny.
+                &quot;He carried a quiet certainty in his heart for years, and when her smile finally met that faith - their forever began. To him, she was the moment that turned time into destiny.&quot;
               </p>
 
               {/* Grandparents Blessing */}
@@ -245,9 +221,9 @@ export default function Home() {
 
               {/* Parents Names */}
               <div className="text-center space-y-2">
-                <p><span className="font-bold">Mrs. Madhu Dubey</span> & <span className="font-semibold block">Mr. Desh Rattan Dubey</span>
+                <div><span className="font-bold">Mrs. Madhu Dubey</span> & <span className="font-semibold block">Mr. Desh Rattan Dubey</span>
                 <p>together with</p>
-                 <span className="font-bold">Mrs. Uma Sharma & <span className="block">Lt. Mr. Shyamlal Sharma</span></span> joyfully open hearts to invite you to witness a tale of hearts entwining, where promises are whispered, dreams are shared, and a lifetime begins in the glow of sacred vows— at the Reception of Baraat of their beloved daughter,</p>
+                 <span className="font-bold">Mrs. Uma Sharma & <span className="block">Lt. Mr. Sham Lal Sharma</span></span> joyfully open hearts to invite you to witness a tale of hearts entwining, where promises are whispered, dreams are shared, and a lifetime begins in the glow of sacred vows— at the Reception of Baraat of their beloved daughter,</div>
               </div>
 
               {/* Bride and Groom Names */}
@@ -281,11 +257,11 @@ export default function Home() {
                   Best Compliments:
                 </h4>
                 <div className="flex items-center justify-between gap-2 space-y-1">
-                  <p className="font-semibold">Adv. Achyut Dubey</p>
-                  <p className="font-semibold">Mr. Munish Sharma</p>
-                  <p className="font-semibold">Mr. Anish Sharma</p>
+                  <p className="font-semibold">Adv. <span className="block">Achyut</span> <span>Dubey</span></p>
+                  <p className="font-semibold">Mr. <span className="block">Munish</span> <span>Sharma</span></p>
+                  <p className="font-semibold">Mr. <span className="block">Anish</span> <span>Sharma</span></p>
                 </div>
-                <p className="flex flex-col gap-2 text-xl font-semibold italic pt-2">
+                <p className="flex flex-col gap-2 font-semibold pt-2">
                   <span>Count a special invite from her newly married Twin and brother-in-law:</span>
                   <span className="font-semibold">Aditi Akshay Sharma.</span>
                 </p>
@@ -362,10 +338,10 @@ export default function Home() {
                 </svg>
               </div>
               <div className="text-center">
-                <p className="font-cormorant text-xl md:text-2xl">
+                <p className="font-cormorant text-xl md:text-2xl text-[#0B3D2E]">
                   Zone by the Park
                 </p>
-                <p className="text-sm text-muted">Trikuta Nagar, Jammu</p>
+                <p className="text-sm text-[#0B3D2E]/70">Trikuta Nagar, Jammu</p>
               </div>
             </div>
 
@@ -467,13 +443,6 @@ export default function Home() {
           </div>
         </motion.div>
       </footer>
-
-      {/* Music Player */}
-      <MusicPlayer
-        audioRef={audioRef}
-        isPlaying={isPlaying}
-        setIsPlaying={setIsPlaying}
-      />
     </div>
   );
 }
