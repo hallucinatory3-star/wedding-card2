@@ -74,9 +74,9 @@ export default function RootLayout({
         <title>{brideName} & {groomName} | Wedding Invitation</title>
         <meta 
           name="description" 
-          content={`You're cordially invited to celebrate the wedding of ${brideName} & ${groomName} on ${weddingDate}. Join us for our special day!`}
+          content={`You're cordially invited to ${brideName} & ${groomName}'s wedding on ${weddingDate}`}
         />
-        <meta name="theme-color" content="#8B3A5A" />
+        <meta name="theme-color" content="#eed3a4" />
       </head>
       <body
         className={`${playfair.variable} ${cormorant.variable} ${inter.variable} antialiased`}

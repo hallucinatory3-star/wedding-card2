@@ -39,6 +39,8 @@ export default function Home() {
 
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
+
+
   return (
     <div ref={containerRef} className="min-h-screen bg-[#eed3a4] relative overflow-x-hidden w-full">
       <FloatingParticles />
@@ -116,20 +118,24 @@ export default function Home() {
           </motion.div>
 
           {/* Scroll Indicator */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, y: [0, 10, 0] }}
-            transition={{ delay: 1.5, y: { repeat: Infinity, duration: 2 } }}
-            className="absolute bottom-10 left-1/2 -translate-x-1/2"
-          >
-            <div className="w-6 h-10 rounded-full border-2 border-[#0B3D2E]/50 flex items-start justify-center p-2">
-              <motion.div
-                animate={{ y: [0, 12, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
-                className="w-1.5 h-1.5 bg-[#0B3D2E] rounded-full"
-              />
-            </div>
-          </motion.div>
+<motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1, y: [0, 10, 0] }}
+  transition={{ delay: 2, y: { repeat: Infinity, duration: 2 } }}
+  className="fixed bottom-32 sm:bottom-24 right-6 sm:right-20 z-20 flex flex-col items-center gap-2"
+>
+  <div className="w-6 h-10 rounded-full border-2 border-[#0B3D2E]/60 flex items-start justify-center p-2">
+    <motion.div
+      animate={{ y: [0, 12, 0] }}
+      transition={{ repeat: Infinity, duration: 1.5 }}
+      className="w-1.5 h-1.5 bg-[#0B3D2E] rounded-full"
+    />
+  </div>
+  <span className="text-[10px] tracking-[0.2em] uppercase text-[#0B3D2E]/60">
+    Scroll
+  </span>
+</motion.div>
+
         </motion.div>
       </section>
 
@@ -247,7 +253,7 @@ export default function Home() {
               </div>
 
               {/* Blessing line */}
-              <p className="text-center text-lg italic py-4">
+              <p className="text-center italic py-4">
                 May your presence be the blessing that turns moments into memories and celebration into forever.
               </p>
 
@@ -261,8 +267,8 @@ export default function Home() {
                   <p className="font-semibold">Mr. <span className="block">Munish</span> <span>Sharma</span></p>
                   <p className="font-semibold">Mr. <span className="block">Anish</span> <span>Sharma</span></p>
                 </div>
-                <p className="flex flex-col gap-2 font-semibold pt-2">
-                  <span>Count a special invite from her newly married Twin and brother-in-law:</span>
+                <p className="flex flex-col gap-2 pt-2">
+                  <span className="text-md">Count a special invite from her newly married Twin and brother-in-law:</span>
                   <span className="font-semibold">Aditi Akshay Sharma.</span>
                 </p>
               </div>

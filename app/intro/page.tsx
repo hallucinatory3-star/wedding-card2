@@ -18,6 +18,14 @@ export default function IntroPage() {
     };
   }, []);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      router.push("/invitation");
+    }, 16000);
+
+    return () => clearTimeout(timer);
+  }, [router]);
+
   const handleNextPage = () => {
     router.push("/invitation");
   };
@@ -36,9 +44,9 @@ export default function IntroPage() {
           muted
           loop
           playsInline
-          className="w-full h-auto object-cover fixed top-0 left-0 z-0 min-h-screen min-w-full"
+          className="w-full h-auto z-0 min-h-screen min-w-full"
         >
-          <source src="/video/video-2.MP4" type="video/mp4" />
+          <source src="/video/video-3.MP4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         {/* Overlay */}
@@ -54,11 +62,11 @@ export default function IntroPage() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         className="
-    absolute bottom-30 right-8 z-10
+    absolute bottom-50 right-8 z-10
     px-8 py-2 rounded-full
-    text-[#eed3a4] font-playfair text-lg bg-black/30
-    border border-[rgba(255,255,255,0.42)]
-    shadow-lg shadow-black/20
+    text-[#eed3a4] font-playfair text-lg bg-[#0B3D2E] hover:bg-[#0a3226]
+    border border-[#0B3D2E]
+    shadow-lg shadow-[#0B3D2E]/30
 
     transition-all duration-300
   "
@@ -66,21 +74,7 @@ export default function IntroPage() {
         Click here
       </motion.button>
 
-      {/* Scroll Hint */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 10, 0] }}
-        transition={{ delay: 2, y: { repeat: Infinity, duration: 2 } }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10"
-      >
-        <div className="w-6 h-10 rounded-full border-2 border-white/50 flex items-start justify-center p-2">
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
-            className="w-1.5 h-1.5 bg-white rounded-full"
-          />
-        </div>
-      </motion.div>
+
     </div>
   );
 }
