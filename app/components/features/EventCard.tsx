@@ -28,10 +28,10 @@ export const EventCard = ({
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.9, delay, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.2 }}
-      className="glass rounded-3xl p-6 md:p-8 border border-[#8B3A5A]/20 hover:border-[#8B3A5A]/40 transition-all duration-500"
+      className="glass rounded-3xl p-6 md:p-8 border border-[#0B3D2E]/20 hover:border-[#0B3D2E]/40 transition-all duration-500"
     >
       <motion.h3
-        className="text-2xl md:text-3xl font-playfair gradient-text mb-6 text-center"
+        className="text-2xl md:text-3xl font-playfair text-[#0B3D2E] mb-6 text-center"
         whileHover={{ scale: 1.02 }}
       >
         {title}
@@ -39,9 +39,9 @@ export const EventCard = ({
 
       <div className="space-y-4 mb-6">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-[#8B3A5A]/10 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-full bg-[#0B3D2E]/10 flex items-center justify-center">
             <svg
-              className="w-5 h-5 text-[#8B3A5A]"
+              className="w-5 h-5 text-[#0B3D2E]"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -56,13 +56,13 @@ export const EventCard = ({
           </div>
           <div>
             <p className="text-sm text-muted">Date</p>
-            <p className="font-cormorant text-lg">{date}</p>
+            <p className="font-semibold text-md">{date}</p>
           </div>
         </div>
 
         {subEvent && (
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[#8B3A5A]/10 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full bg-[#0B3D2E]/10 flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-5 h-5"
@@ -80,7 +80,7 @@ export const EventCard = ({
                 <path
                   d="M12 8 C12 8 52 8 52 8 C48 30 42 42 32 50 C22 42 16 30 12 8 Z"
                   fill="none"
-                  stroke="#8B3A5A"
+                  stroke="#0B3D2E"
                   strokeWidth="4"
                   strokeLinejoin="round"
                 />
@@ -99,7 +99,7 @@ export const EventCard = ({
                   y1="50"
                   x2="32"
                   y2="74"
-                  stroke="#8B3A5A"
+                  stroke="#0B3D2E"
                   strokeWidth="4"
                   strokeLinecap="round"
                 />
@@ -110,22 +110,22 @@ export const EventCard = ({
                   rx="18"
                   ry="4"
                   fill="none"
-                  stroke="#8B3A5A"
+                  stroke="#0B3D2E"
                   strokeWidth="4"
                 />
               </svg>
             </div>
             <div>
-              <p className="font-cormorant text-lg">{subEvent}</p>
+              <p className="font-semibold text-md">{subEvent}</p>
             </div>
           </div>
         )}
 
         {time && (
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[#8B3A5A]/10 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full bg-[#0B3D2E]/10 flex items-center justify-center">
               <svg
-                className="w-5 h-5 text-[#8B3A5A]"
+                className="w-5 h-5 text-[#0B3D2E]"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -140,16 +140,16 @@ export const EventCard = ({
             </div>
             <div>
               <p className="text-sm text-muted">Time</p>
-              <p className="font-cormorant text-lg">{time}</p>
+              <p className="font-bold text-md">{time}</p>
             </div>
           </div>
         )}
 
         {venue && (
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[#8B3A5A]/10 flex items-center justify-center">
+          <div className="flex items-center gap-2">
+            <div className="w-10 h-10 rounded-full bg-[#0B3D2E]/10 flex items-center justify-center">
               <svg
-                className="w-5 h-5 text-[#8B3A5A]"
+                className="w-5 h-5 text-[#0B3D2E]"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -170,7 +170,7 @@ export const EventCard = ({
             </div>
             <div>
               <p className="text-sm text-muted">Venue</p>
-              <p className="font-cormorant text-lg">{venue}</p>
+              <p className="font-semibold text-md">{venue}</p>
               {address && <p className="text-sm text-muted">{address}</p>}
             </div>
           </div>
@@ -178,9 +178,9 @@ export const EventCard = ({
 
         {dressCode && (
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[#8B3A5A]/10 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full bg-[#0B3D2E]/10 flex items-center justify-center">
               <svg
-                className="w-5 h-5 text-[#8B3A5A]"
+                className="w-5 h-5 text-[#0B3D2E]"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -195,7 +195,7 @@ export const EventCard = ({
             </div>
             <div>
               <p className="text-sm text-muted">Dress Code</p>
-              <p className="font-cormorant text-lg">{dressCode}</p>
+              <p className="font-semibold text-md">{dressCode}</p>
             </div>
           </div>
         )}

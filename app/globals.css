@@ -173,10 +173,10 @@ html {
 
 /* Glass Effect */
 .glass {
-  background: rgba(232, 184, 200, 0.4);
+  background: rgba(238, 211, 164, 0.5);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(139, 58, 90, 0.2);
+  border: 1px solid rgba(11, 61, 46, 0.2);
 }
 
 /* Decorative Border */
