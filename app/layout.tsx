@@ -44,28 +44,38 @@ export default function RootLayout({
 }>) {
   const pathname = usePathname();
   const isLandingPage = pathname === "/landing" || pathname === "/";
+  const isIntroPage = pathname === "/intro";
+  const shouldShowMusicPlayer = !isLandingPage && !isIntroPage;
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Initialize and manage music
   useEffect(() => {
     // Initialize audio only once
-    const initAudio = () => {
-      if (!audioRef.current) {
-        audioRef.current = new Audio(MUSIC_URL);
-        audioRef.current.loop = true;
-        audioRef.current.volume = 0.4;
-      }
-    };
+    if (!audioRef.current) {
+      audioRef.current = new Audio(MUSIC_URL);
+      audioRef.current.loop = true;
+      audioRef.current.volume = 0.4;
 
-    initAudio();
+      // Sync state with audio events
+      const handlePlay = () => setIsPlaying(true);
+      const handlePause = () => setIsPlaying(false);
+      const handleEnded = () => setIsPlaying(false);
 
-    // Cleanup on unmount
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-      }
-    };
+      audioRef.current.addEventListener("play", handlePlay);
+      audioRef.current.addEventListener("pause", handlePause);
+      audioRef.current.addEventListener("ended", handleEnded);
+
+      // Cleanup on unmount
+      return () => {
+        if (audioRef.current) {
+          audioRef.current.removeEventListener("play", handlePlay);
+          audioRef.current.removeEventListener("pause", handlePause);
+          audioRef.current.removeEventListener("ended", handleEnded);
+          audioRef.current.pause();
+        }
+      };
+    }
   }, []);
 
   return (
@@ -82,8 +92,8 @@ export default function RootLayout({
         className={`${playfair.variable} ${cormorant.variable} ${inter.variable} antialiased`}
       >
         {children}
-        {/* Global Music Player - Hidden on Landing Page */}
-        {!isLandingPage && (
+        {/* Global Music Player - Hidden on Landing Page and Intro Page */}
+        {shouldShowMusicPlayer && (
           <MusicPlayer
             audioRef={audioRef}
             isPlaying={isPlaying}

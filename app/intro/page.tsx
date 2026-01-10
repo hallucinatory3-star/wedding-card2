@@ -2,10 +2,11 @@
 
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function IntroPage() {
   const router = useRouter();
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -26,32 +27,53 @@ export default function IntroPage() {
     return () => clearTimeout(timer);
   }, [router]);
 
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.play().catch((error) => {
+        console.error("Error playing video:", error);
+      });
+    }
+  }, []);
+
   const handleNextPage = () => {
     router.push("/invitation");
+  };
+
+  const handleVideoError = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
+    console.error("Video error:", e);
+    const target = e.target as HTMLVideoElement;
+    if (target.error) {
+      console.error("Video error code:", target.error.code);
+      console.error("Video error message:", target.error.message);
+    }
   };
 
   return (
     <div className="h-screen w-screen flex flex-col items-center justify-center relative overflow-hidden bg-[#eed3a4]">
       {/* Video Background */}
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        onError={handleVideoError}
+        onLoadedData={() => console.log("Video loaded successfully")}
+        onCanPlay={() => console.log("Video can play")}
+        className="fixed inset-0 w-full h-full z-[1]"
+      >
+        <source src="/video/video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      {/* Overlay */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="flex items-center justify-center"
-      >
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-auto z-0 min-h-screen min-w-full"
-        >
-          <source src="/video/video.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        {/* Overlay */}
-        <div className="bg-black/40" />
-      </motion.div>
+        className="fixed inset-0 bg-black/40 z-[2]"
+      />
 
       {/* Enter Button - Bottom Right */}
       <motion.button
@@ -62,7 +84,7 @@ export default function IntroPage() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         className="
-    absolute bottom-50 right-8 z-10
+    absolute bottom-50 right-8 z-20
     px-8 py-2 rounded-full
     text-[#eed3a4] font-playfair text-lg bg-[#0B3D2E] hover:bg-[#0a3226]
     border border-[#0B3D2E]

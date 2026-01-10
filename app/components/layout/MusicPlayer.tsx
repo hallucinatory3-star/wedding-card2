@@ -14,7 +14,7 @@ export const MusicPlayer = ({
   setIsPlaying: (playing: boolean) => void;
 }) => {
   const toggleMusic = async () => {
-    // Create audio on first click (required for mobile browsers)
+    // Ensure audio is initialized (should already be from layout, but handle edge case)
     if (!audioRef.current) {
       audioRef.current = new Audio(MUSIC_URL);
       audioRef.current.loop = true;
@@ -24,10 +24,10 @@ export const MusicPlayer = ({
     try {
       if (isPlaying) {
         audioRef.current.pause();
-        setIsPlaying(false);
+        // setIsPlaying will be updated by event listener in layout
       } else {
         await audioRef.current.play();
-        setIsPlaying(true);
+        // setIsPlaying will be updated by event listener in layout
       }
     } catch (error) {
       console.log("Playback error:", error);
