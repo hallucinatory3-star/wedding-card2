@@ -21,7 +21,7 @@ export default function IntroPage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       router.push("/invitation");
-    }, 16000);
+    }, 14000);
 
     return () => clearTimeout(timer);
   }, [router]);
@@ -46,7 +46,7 @@ export default function IntroPage() {
           playsInline
           className="w-full h-auto z-0 min-h-screen min-w-full"
         >
-          <source src="/video/video-3.MP4" type="video/mp4" />
+          <source src="/video/video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         {/* Overlay */}
