@@ -24,10 +24,10 @@ export const MusicPlayer = ({
     try {
       if (isPlaying) {
         audioRef.current.pause();
-        // setIsPlaying will be updated by event listener in layout
+        setIsPlaying(false); // Update state immediately
       } else {
         await audioRef.current.play();
-        // setIsPlaying will be updated by event listener in layout
+        setIsPlaying(true); // Update state immediately
       }
     } catch (error) {
       console.log("Playback error:", error);

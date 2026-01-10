@@ -16,7 +16,15 @@ export const ShareButton = () => {
     return () => document.removeEventListener("click", handleClickOutside);
   }, [showOptions]);
 
-  const shareUrl = typeof window !== "undefined" ? window.location.href : "";
+  // Always share the landing page URL (start of the experience)
+  const getShareUrl = () => {
+    if (typeof window !== "undefined") {
+      const origin = window.location.origin;
+      return `${origin}/landing`;
+    }
+    return "";
+  };
+  const shareUrl = getShareUrl();
 
   const shareWhatsApp = () => {
     const message = `${shareUrl}`;

@@ -1,5 +1,4 @@
 import { ImageResponse } from 'next/og'
-import { BRIDE_NAME, GROOM_NAME, WEDDING_DATE } from './constants/wedding-data'
 
 export const runtime = 'edge'
 
@@ -10,13 +9,6 @@ export const size = {
 export const contentType = 'image/png'
 
 export default async function Image() {
-  const groomName = GROOM_NAME
-  const brideName = BRIDE_NAME
-  const weddingDate = WEDDING_DATE.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  })
 
   return new ImageResponse(
     (
@@ -161,89 +153,17 @@ export default async function Image() {
           You&apos;re Invited To
         </div>
 
-        {/* Names */}
+        {/* Main Title */}
         <div
           style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '5px',
-          }}
-        >
-          <div
-            style={{
-              fontSize: '68px',
-              color: '#eed3a4',
-              fontWeight: '600',
-              lineHeight: '1.1',
-            }}
-          >
-            {groomName}
-          </div>
-          <div
-            style={{
-              fontSize: '50px',
-              color: '#eed3a4',
-              fontStyle: 'italic',
-              margin: '5px 0',
-            }}
-          >
-            &
-          </div>
-          <div
-            style={{
-              fontSize: '68px',
-              color: '#eed3a4',
-              fontWeight: '600',
-              lineHeight: '1.1',
-            }}
-          >
-            {brideName}
-          </div>
-        </div>
-
-        {/* Decorative divider */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '15px',
-            margin: '25px 0',
-          }}
-        >
-          <div
-            style={{
-              width: '80px',
-              height: '1px',
-              background: 'linear-gradient(90deg, transparent, #eed3a4)',
-            }}
-          />
-          <div
-            style={{
-              width: '10px',
-              height: '10px',
-              border: '2px solid #eed3a4',
-              transform: 'rotate(45deg)',
-            }}
-          />
-          <div
-            style={{
-              width: '80px',
-              height: '1px',
-              background: 'linear-gradient(90deg, #eed3a4, transparent)',
-            }}
-          />
-        </div>
-
-        {/* Date */}
-        <div
-          style={{
+            fontSize: '68px',
             color: '#eed3a4',
-            fontSize: '28px',
-            fontStyle: 'italic',
+            fontWeight: '600',
+            lineHeight: '1.1',
+            textAlign: 'center',
           }}
         >
-          {weddingDate}
+          Wedding Invitation
         </div>
 
         {/* Bottom text */}

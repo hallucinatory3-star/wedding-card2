@@ -2,25 +2,12 @@
 
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { MUSIC_URL } from "../constants/wedding-data";
 import Image from "next/image";
 
 export default function LandingPage() {
   const router = useRouter();
 
-  const handleExplore = async () => {
-    try {
-      let audio = document.querySelector('audio');
-      if (!audio) {
-        audio = new Audio(MUSIC_URL);
-        audio.loop = true;
-        audio.volume = 0.4;
-        document.body.appendChild(audio);
-      }
-      await audio.play();
-    } catch (error) {
-      console.log("Could not play music:", error);
-    }
+  const handleExplore = () => {
     router.push("/intro");
   };
 

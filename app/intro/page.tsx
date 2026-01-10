@@ -64,7 +64,7 @@ export default function IntroPage() {
         onCanPlay={() => console.log("Video can play")}
         className="fixed inset-0 w-full h-full z-[1]"
       >
-        <source src="/video/video.mp4" type="video/mp4" />
+        <source src="/video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       {/* Overlay */}
