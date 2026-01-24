@@ -1,4 +1,4 @@
-// Pre-computed particle data with deterministic values to avoid hydration mismatches
+// Pre-computed particle data with deterministic values to avoid hydration mismatches - OPTIMIZED for performance
 export const PARTICLE_DATA = [
   { initialX: 0.12, initialY: 0.34, animateX: 23, duration: 14, delay: 1.2 },
   { initialX: 0.87, initialY: 0.21, animateX: -31, duration: 18, delay: 0.5 },
@@ -12,12 +12,4 @@ export const PARTICLE_DATA = [
   { initialX: 0.52, initialY: 0.94, animateX: -38, duration: 10, delay: 3.6 },
   { initialX: 0.08, initialY: 0.18, animateX: 19, duration: 14, delay: 1.4 },
   { initialX: 0.95, initialY: 0.72, animateX: -27, duration: 18, delay: 4.8 },
-  { initialX: 0.41, initialY: 0.05, animateX: 42, duration: 12, delay: 0.1 },
-  { initialX: 0.29, initialY: 0.83, animateX: -9, duration: 16, delay: 2.5 },
-  { initialX: 0.63, initialY: 0.39, animateX: 33, duration: 11, delay: 3.9 },
-  { initialX: 0.18, initialY: 0.61, animateX: -48, duration: 19, delay: 1.0 },
-  { initialX: 0.84, initialY: 0.27, animateX: 14, duration: 13, delay: 4.4 },
-  { initialX: 0.56, initialY: 0.95, animateX: -35, duration: 17, delay: 0.6 },
-  { initialX: 0.03, initialY: 0.48, animateX: 26, duration: 15, delay: 2.3 },
-  { initialX: 0.72, initialY: 0.14, animateX: -41, duration: 10, delay: 3.3 },
 ];

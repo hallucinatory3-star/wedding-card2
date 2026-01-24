@@ -5,7 +5,7 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 
 // Import components
@@ -35,9 +35,103 @@ import {
 // Main Page Component
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: containerRef });
+  const { scrollYProgress } = useScroll(); // Remove containerRef target to fix conflicts
+  const [autoScroll, setAutoScroll] = useState(true);
+  const [scrollCompleted, setScrollCompleted] = useState(false);
 
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+
+  // Buttery smooth continuous auto-scroll (optimized for performance)
+  useEffect(() => {
+    if (autoScroll && !scrollCompleted) {
+      let animationId: number;
+      let lastTime = 0;
+      let accumulatedScroll = 0;
+      const scrollSpeed = 80; // pixels per second - elegant and relaxed pace
+      const targetFPS = 60;
+      const frameInterval = 1000 / targetFPS;
+      
+      const butterySmoothScroll = (currentTime: number) => {
+        if (!lastTime) {
+          lastTime = currentTime;
+          accumulatedScroll = 0;
+        }
+        
+        const deltaTime = currentTime - lastTime;
+        lastTime = currentTime;
+        
+        // Only scroll if enough time has passed for target FPS
+        if (deltaTime >= frameInterval) {
+          const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const currentScroll = window.pageYOffset;
+          
+          if (currentScroll < scrollHeight - 50) {
+            // Calculate precise scroll distance for this frame
+            const scrollDelta = (scrollSpeed * deltaTime) / 1000;
+            accumulatedScroll += scrollDelta;
+            
+            // Apply accumulated scroll immediately
+            if (accumulatedScroll >= 0.5) {
+              window.scrollTo(0, currentScroll + accumulatedScroll);
+              accumulatedScroll = 0;
+            }
+          } else {
+            // End of content - stop scrolling permanently
+            setAutoScroll(false);
+            setScrollCompleted(true); // Mark as completed
+            return;
+          }
+        }
+        
+        animationId = requestAnimationFrame(butterySmoothScroll);
+      };
+      
+      // Start immediately
+      animationId = requestAnimationFrame(butterySmoothScroll);
+
+      return () => {
+        if (animationId) {
+          cancelAnimationFrame(animationId);
+        }
+      };
+    }
+  }, [autoScroll, scrollCompleted]);
+
+  // Pause auto-scroll on meaningful user interaction, resume when idle
+  useEffect(() => {
+    let idleTimer: NodeJS.Timeout;
+    let isInteracting = false;
+    
+    const handleUserInteraction = (e: Event) => {
+      // Only pause if auto-scroll is currently active (not already paused)
+      if (autoScroll && !isInteracting && ['wheel', 'touchstart', 'mousedown', 'keydown'].includes(e.type)) {
+        isInteracting = true;
+        setAutoScroll(false);
+        
+        // Clear any existing idle timer
+        if (idleTimer) clearTimeout(idleTimer);
+        
+        // Resume after 1 second of inactivity
+        idleTimer = setTimeout(() => {
+          isInteracting = false;
+          setAutoScroll(true);
+        }, 1000);
+      }
+    };
+
+    // Listen to meaningful interactions only
+    const events = ['wheel', 'touchstart', 'mousedown', 'keydown'];
+    events.forEach(event => {
+      window.addEventListener(event, handleUserInteraction, { passive: true });
+    });
+
+    return () => {
+      events.forEach(event => {
+        window.removeEventListener(event, handleUserInteraction);
+      });
+      if (idleTimer) clearTimeout(idleTimer);
+    };
+  }, []);
 
 
 
@@ -112,30 +206,12 @@ export default function Home() {
             transition={{ delay: 1 }}
             className="mb-12"
           >
-            <p className="text-xl sm:text-2xl md:text-3xl font-cormorant)] text-[#0B3D2E]">
+            <p className="text-xl sm:text-2xl md:text-3xl font-cormorant text-[#0B3D2E]">
               Wednesday, February 4th, 2026
             </p>
           </motion.div>
 
-          {/* Scroll Indicator */}
-<motion.div
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1, y: [0, 10, 0] }}
-  transition={{ delay: 2, y: { repeat: Infinity, duration: 2 } }}
-  className="fixed bottom-32 sm:bottom-24 right-6 sm:right-20 z-20 flex flex-col items-center gap-2"
->
-  <div className="w-6 h-10 rounded-full border-2 border-[#0B3D2E]/60 flex items-start justify-center p-2">
-    <motion.div
-      animate={{ y: [0, 12, 0] }}
-      transition={{ repeat: Infinity, duration: 1.5 }}
-      className="w-1.5 h-1.5 bg-[#0B3D2E] rounded-full"
-    />
-  </div>
-  <span className="text-[10px] tracking-[0.2em] uppercase text-[#0B3D2E]/60">
-    Scroll
-  </span>
-</motion.div>
-
+          
         </motion.div>
       </section>
 
@@ -171,17 +247,13 @@ export default function Home() {
       {/* New Invitation Section */}
       <section className="py-20 md:py-32 relative">
         {/* Subtle decorative lines */}
-        <motion.div
+        <div
           aria-hidden
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2 }}
-          className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+          className="pointer-events-none absolute inset-0 -z-10 overflow-hidden opacity-0"
         >
           <div className="absolute top-0 left-1/2 w-64 h-px bg-gradient-to-r from-transparent via-[#0B3D2E]/30 to-transparent" />
           <div className="absolute bottom-0 left-1/2 w-64 h-px bg-gradient-to-r from-transparent via-[#0B3D2E]/30 to-transparent" />
-        </motion.div>
+        </div>
 
         <div className="max-w-5xl mx-auto">
           <motion.div
